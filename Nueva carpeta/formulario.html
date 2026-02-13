@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+ <title>Información de Envío | Ni Küelita Notal</title>
+    <style>
+        body { 
+            font-family: "Montserrat", sans-serif; 
+            background: #1a1a1a; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; 
+            margin: 0; 
+        }
+
+        .container { 
+            background: #000000; 
+            padding: 40px; 
+            border-radius: 15px; 
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.15); 
+            width: 100%; 
+            max-width: 400px; 
+            border: 2px solid #d4af37; 
+            text-align: center;
+            position: relative;
+        }
+.container { 
+    background: #000000; 
+    padding: 40px; 
+    border-radius: 15px; 
+    width: 100%; 
+    max-width: 400px; 
+    text-align: center;
+    position: relative;
+    /* Eliminamos el border sólido anterior para usar el animado */
+    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* El elemento que crea el efecto de giro */
+.container::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    /* Gradiente que gira: dorado y negro */
+    background: conic-gradient(
+        transparent, 
+        #d4af37, 
+        transparent 30%
+    );
+    animation: rotate 4s linear infinite;
+    top: -25%;
+    left: -25%;
+}
+
+/* Capa interna para que el contenido no se vea afectado por el giro */
+.container::after {
+    content: "";
+    position: absolute;
+    inset: 3px; /* Este número define el grosor del borde (3px) */
+    background: #000;
+    border-radius: 20px;
+    z-index: 0;
+}
+
+/* Asegurar que el contenido esté por encima de las capas de fondo */
+.logo-container, h2, form, .back-link {
+    position: relative;
+    z-index: 1;
+}
+
+/* Animación del giro */
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+        /* ESTILO DEL LOGO */
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        .logo-container img {
+            width: 100px; /* Ajusta el tamaño según prefieras */
+            height: auto;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5)); /* Brillo sutil */
+        }
+
+        h2 { 
+            color: #d4af37; 
+            margin-bottom: 25px; 
+            font-size: 20px; 
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            border-bottom: 1px solid #d4af37;
+            padding-bottom: 10px;
+        }
+
+        .field-group {
+            text-align: left;
+            margin-bottom: 18px;
+        }
+
+        label { 
+            color: #d4af37; 
+            font-size: 11px; 
+            display: block; 
+            margin-bottom: 6px; 
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        input { 
+            width: 100%; 
+            padding: 12px; 
+            background: #0a0a0a;
+            border: 1px solid #444; 
+            border-radius: 4px; 
+            box-sizing: border-box; 
+            color: #fff;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+
+        input:focus { 
+            outline: none; 
+            border-color: #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        button { 
+            background: #d4af37; 
+            color: #000; 
+            border: none; 
+            padding: 16px; 
+            width: 100%; 
+            border-radius: 4px; 
+            font-size: 15px; 
+            font-weight: 900; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            margin-top: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover { 
+            background: #f1c40f; 
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 25px;
+            color: #888;
+            text-decoration: none;
+            font-size: 11px;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #d4af37;
+        }
+        .btn-cancelar {
+    background: transparent;
+    color: #888;
+    border: 1px solid #444;
+    padding: 12px;
+    width: 100%;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.btn-cancelar:hover {
+    background: #cc0000; /* Se pone rojo al pasar el mouse */
+    color: white;
+    border-color: #cc0000;
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo-container">
+        <img src="logop.png" alt="Ni Küelita Notal Logo">
+    </div>
+    <h2>Dirección de Envío</h2>
+    <form id="formularioEnvio">
+        <label>Nombre del destinatario</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+        
+        <label>Dirección</label>
+        <input type="text" id="calle" name="calle" placeholder="Calle, número, departamento" required>
+        
+        <div style="display: flex; gap: 10px;">
+            <div style="flex: 2;">
+                <label>Ciudad</label>
+                <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad" required>
+            </div>
+            <div style="flex: 1;">
+                <label>C.P.</label>
+                <input type="text" id="cp" name="cp" placeholder="00000" required>
+            </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+    <button type="submit" id="pagar">Pagar ahora</button>
+    <button type="button" class="btn-cancelar" onclick="cancelarCompra()">Cancelar y volver a la tienda</button>
+</div>
+    </form>
+</div>
+
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+const stripe = Stripe("pk_test_51SSfoX0bwADDhpsjBLID9t41374lv63DskII4hVgQiqwt5L0bVmFh4cqAKg0TvgDyuH20ziUr5QJjZa0xT8a21OH00nemIIkZE");
+
+document.getElementById("formularioEnvio").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    // 1. Obtener el carrito actual
+    const carrito = JSON.parse(localStorage.getItem("cart")) || [];
+    
+    if (carrito.length === 0) {
+        alert("El carrito está vacío, vuelve a la tienda.");
+        return;
+    }
+
+    // 2. GUARDADO CRÍTICO: Guardamos los datos para el TICKET antes de ir a Stripe
+    const datosParaTicket = {
+        nombre: document.getElementById("nombre").value,
+        calle: document.getElementById("calle").value,
+        ciudad: document.getElementById("ciudad").value,
+        cp: document.getElementById("cp").value
+    };
+
+    // Guardamos en memoria local con nombres que el Success.html sí reconozca
+    localStorage.setItem("datosEnvioTicket", JSON.stringify(datosParaTicket));
+    localStorage.setItem("ticketCarrito", JSON.stringify(carrito));
+
+    // 3. Enviar datos al servidor PHP
+    const datosParaPHP = {
+        ...datosParaTicket,
+        productos: carrito 
+    };
+
+    try {
+        const respuesta = await fetch("crear_sesion.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(datosParaPHP)
+        });
+
+        const sesion = await respuesta.json();
+
+        if (sesion.id) {
+            // 4. Ir a Stripe
+            stripe.redirectToCheckout({ sessionId: sesion.id });
+        } else {
+            alert("Error de Stripe: " + sesion.error);
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Hubo un error al procesar el pago.");
+    }
+});
+
+function cancelarCompra() {
+   localStorage.removeItem("cart");
+   window.location.href = "index.html";
+}
+</script>
+</body>
+</html>

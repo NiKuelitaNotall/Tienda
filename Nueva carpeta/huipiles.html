@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="huipiles.css">
+  <title>Huipiles</title>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <a href="index.html">
+    <img class="logo" src="logop.png" alt="logo">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="rop.html">Dama</a></li>
+     <li><a href="huipiles.html">Huipiles</a></li>
+      <li><a href="guayaberas.html">Guayaberas</a></li>
+    <li><a href="manu.html">Manualidades</a></li>
+    <li><a href="ves.html">Vestidos XV</a></li>
+    <li><a href="ale.html">Alebrijes</a></li>
+
+    
+
+    <li class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
+    </li>
+  </ul>
+</nav>
+
+<div class="top-bar">
+    <div class="carousel-text">
+      <p>✨ Vístete de historia, viste un huipil.</p>
+      <p>🌸 Donde el arte y la historia se encuentran.</p>
+      <p>🎁 Cultura y tradición en cada hilo.</p>
+      <p>💜  Lo antiguo, con un toque de estilo.</p>
+    </div>
+  </div>
+<!-- CARRITO -->
+<div class="cart-panel" id="cart-panel">
+  <span class="cerrar-cart" onclick="toggleCart()">✖</span>
+  <h3>Tu carrito 🛍️</h3>
+  <div class="cart-items"></div>
+  <div class="cart-total">Total: $0 MXN</div>
+  <a href="formulario.html" style="background-color: #af19f5; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; text-align: center;">
+    Proceder al Envío
+  </a>
+</div>
+
+<!-- PRODUCTOS -->
+<section class="productos">
+  <h2 class="section-title">Tejidos que cuentan historias.</h2>
+
+  <div class="grid-productos">
+
+    <!-- EJEMPLO DE PRODUCTO CORREGIDO -->
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/1.jfif">
+      <h3>Istmeña Flor de Mayo</h3>
+      <p class="precio">$2450 MXN</p>
+      <p class="descripcion">blanca tradicional con bordado floral multicolor.</p>
+
+      <button class="btn" data-id="Istmeña Flor de Mayo"
+      onclick="addToCart('Istmeña Flor de Mayo', 2450,'Istmeña Flor de Mayo')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/descarga.jfif">
+      <h3>ROJA TIERRA</h3>
+      <p class="precio">$2000 MXN</p>
+      <p class="descripcion">Vestido largo en tono vino con patrones textiles ancestrales.</p>
+
+      <button class="btn" data-id="ROJA TIERRA"
+      onclick="addToCart('ROJA TIERRA', 2000,'ROJA TIERRA')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/guo1.jfif">
+      <h3>AVIA</h3>
+      <p class="precio">$1500 MXN</p>
+      <p class="descripcion">Huipil bordado con símbolos de aves que representan libertad y conexión espiritual. Diseño auténtico con esencia natural..</p>
+
+      
+      <button class="btn" data-id="AVIA"
+       onclick="addToCart('', 1500,AVIA)">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h1.jpg">
+      <h3>KALÉIDO</h3>
+      <p class="precio">$3500 MXN</p>
+      <p class="descripcion">Vestido artesanal de color crema con geometría vibrante y colores intensos.</p>
+
+      <button class="btn" data-id="KALÉIDO"
+      onclick="addToCart('KALÉIDO', 3500,'KALÉIDO')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h10.PNG">
+      <h3>SENDERO</h3>
+      <p class="precio">$1450 MXN</p>
+      <p class="descripcion">Blanco de algodón con bordado floral vertical. Minimalista, fresca y profundamente artesanal..</p>
+
+      <button class="btn" data-id="SENDERO"
+      onclick="addToCart('SENDERO', 1450,'SENDERO')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h11.PNG">
+      <h3>NOCTURNA</h3>
+      <p class="precio">$2450 MXN</p>
+      <p class="descripcion">Vestido tradicional en color blanco con bordado central de alto contraste. Inspirada en la noche oaxaqueña y su riqueza textil..</p>
+
+      <button class="btn" data-id="NOCTURNA"
+      onclick="addToCart('NOCTURNA', 2450,'NOCTURNA')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h12.PNG">
+      <h3>UMBRA FLORAL</h3>
+      <p class="precio">$3500 MXN</p>
+      <p class="descripcion">Huipil de tela negra artesanal con bordados florales vibrantes en mangas y laterales. Un contraste poderoso entre elegancia y tradición..</p>
+
+      <button class="btn" data-id="UMBRA FLORAL"
+      onclick="addToCart('UMBRA FLORAL', 3500,'UMBRA FLORAL')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h13.PNG">
+      <h3>VERTIENTE</h3>
+      <p class="precio">$2000 MXN</p>
+      <p class="descripcion">Huipil en tela blanca con bordado floral vertical que fluye como un río de color. Estiliza la silueta y celebra el trabajo hecho a mano.</p>
+
+      <button class="btn" data-id="VERTIENTE"
+      onclick="addToCart('VERTIENTE', 2000,'VERTIENTE')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h14.PNG">
+      <h3>RAÍZ VIVA</h3>
+      <p class="precio">$2500 MXN</p>
+      <p class="descripcion">Huipil de algodón natural con bordados coloridos inspirados en la tierra y la herencia textil. Auténtica, fresca y atemporal.</p>
+
+      <button class="btn" data-id="RAÍZ VIVA"
+      onclick="addToCart('RAÍZ VIVA', 2500,'RAÍZ VIVA')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h15.PNG">
+      <h3>FLOR DE ORIGEN</h3>
+      <p class="precio">$4300 MXN</p>
+      <p class="descripcion">Huipil blanco con bordado central lleno de color y simbolismo. Una pieza que honra las raíces culturales con delicadeza.</p>
+
+      <button class="btn" data-id="FLOR DE ORIGEN"
+      onclick="addToCart('FLOR DE ORIGEN', 4300,'FLOR DE ORIGEN')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h16.PNG">
+      <h3>TIERRA SERENA</h3>
+      <p class="precio">$5000 MXN</p>
+      <p class="descripcion">Huipil artesanal en tonos naturales con bordados sutiles y detalles laterales. Minimalismo tradicional para un estilo consciente.</p>
+
+      <button class="btn" data-id="TIERRA SERENA"
+      onclick="addToCart('TIERRA SERENA', 5000,'TIERRA SERENA')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h17.PNG">
+      <h3>FUEGO NOCTURNO</h3>
+      <p class="precio">$3400 MXN</p>
+      <p class="descripcion">Huipil en tela negra con bordado floral intenso y luminoso. Inspirada en las fiestas y noches tradicionales del sur de México.</p>
+
+      <button class="btn" data-id="FUEGO NOCTURNO"
+      onclick="addToCart('FUEGO NOCTURNO', 3400,'FUEGO NOCTURNO')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h2.jpg">
+      <h3>PULSO ROJO</h3>
+      <p class="precio">$6700 MXN</p>
+      <p class="descripcion">Huipil artesanal con bordado geométrico en tonos intensos. Tradición y fuerza en una sola pieza.</p>
+
+      <button class="btn" data-id="PULSO ROJO"
+      onclick="addToCart('PULSO ROJO', 6700,'PULSO ROJO')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h2.webp">
+      <h3>VERDE FESTIVO</h3>
+      <p class="precio">$4800 MXN</p>
+      <p class="descripcion">Huipil de algodón con bordado floral en verde y amarillo. Alegre, tradicional y llena de vida.</p>
+
+      <button class="btn" data-id="VERDE FESTIVO"
+      onclick="addToCart('VERDE FESTIVO', 4800,'VERDE FESTIVO')">
+        Agregar al carrito
+      </button>
+    </div>
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h4.jpg">
+      <h3>TRAMA VIVA</h3>
+      <p class="precio">$3900 MXN</p>
+      <p class="descripcion">Huipil bordada a mano con diseño geométrico multicolor. Textura visual y herencia cultural.</p>
+
+      <button class="btn" data-id="TRAMA VIVA"
+      onclick="addToCart('TRAMA VIVA', 3900,'TRAMA VIVA')">
+        Agregar al carrito
+      </button>
+    </div>
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h5.PNG">
+      <h3>ÍNDIGO LÚMEN</h3>
+      <p class="precio">$5200 MXN</p>
+      <p class="descripcion">Huipil morada con bordado sutil repetitivo. Elegante, ligera y versátil.</p>
+
+      <button class="btn"data-id="ÍNDIGO LÚMEN"
+       onclick="addToCart('ÍNDIGO LÚMEN', 5200,'ÍNDIGO LÚMEN')">
+        Agregar al carrito
+      </button>
+    </div>
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h6.PNG">
+      <h3>CONSTELACIÓN</h3>
+      <p class="precio">$3900 MXN</p>
+      <p class="descripcion">Huipil oscura con pequeños bordados coloridos. Inspirada en el cielo nocturno.</p>
+
+      <button class="btn"data-id="CONSTELACIÓN"
+       onclick="addToCart('CONSTELACIÓN', 3900,'CONSTELACIÓN')">
+        Agregar al carrito
+      </button>
+    </div>
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Hupil/h7.PNG">
+      <h3>JARDÍN NOCTURNO</h3>
+      <p class="precio">$4100 MXN</p>
+      <p class="descripcion">Huipil negra con bordado floral central vibrante. Contraste y tradición artesanal.</p>
+
+      <button class="btn" data-id="JARDÍN NOCTURNO"
+      onclick="addToCart('JARDÍN NOCTURNO', 4100,'JARDÍN NOCTURNO')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+  </div>
+</section>
+
+<!-- SCRIPT -->
+ <script>
+/* ====== STORAGE ====== */
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let agotados = JSON.parse(localStorage.getItem("agotados")) || [];
+
+/* ====== CARRITO ====== */
+function renderCart() {
+    const items = document.querySelector(".cart-items");
+    const totalEl = document.querySelector(".cart-total");
+    const countEl = document.getElementById("cart-count");
+
+    if(!items) return; // Seguridad por si el panel no existe
+
+    items.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        items.innerHTML += `
+            <div class="cart-item">
+                <span>${item.nombre}</span>
+                <span>$${item.precio}</span>
+                <button class="eliminar" onclick="removeItem(${index})">Eliminar</button>
+            </div>
+        `;
+        total += item.precio;
+    });
+
+    totalEl.textContent = `Total: $${total} MXN`;
+    countEl.textContent = cart.length;
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+/* ====== AGREGAR / ELIMINAR ====== */
+function addToCart(nombre, precio, id) {
+    if (agotados.includes(id)) return;
+    cart.push({ nombre, precio, id });
+    agotados.push(id);
+    localStorage.setItem("agotados", JSON.stringify(agotados));
+    renderCart();
+    marcarAgotados();
+}
+
+function removeItem(index) {
+    const item = cart.splice(index, 1)[0];
+    agotados = agotados.filter(pid => pid !== item.id);
+    localStorage.setItem("agotados", JSON.stringify(agotados));
+    renderCart();
+    marcarAgotados();
+}
+
+function marcarAgotados() {
+    document.querySelectorAll("button[data-id]").forEach(btn => {
+        if (agotados.includes(btn.dataset.id)) {
+            btn.textContent = "AGOTADO";
+            btn.disabled = true;
+        } else {
+            btn.textContent = "Agregar al carrito";
+            btn.disabled = false;
+        }
+    });
+}
+
+function toggleCart() {
+    document.getElementById("cart-panel").classList.toggle("open");
+}
+
+/* ====== INICIALIZAR ====== */
+document.addEventListener("DOMContentLoaded", () => {
+    renderCart();
+    marcarAgotados();
+});
+</script>
+
+</body>
+</html>

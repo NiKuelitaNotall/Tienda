@@ -1,0 +1,925 @@
+
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ni Kuelita Notal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color:#000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Barra superior */
+    .top-bar {
+      background-color: #7b17b8;
+      color: #ffe6ff;
+      font-size: 15px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .carousel-text {
+      display: inline-block;
+      animation: moveLeft 20s linear infinite;
+    }
+    .carousel-text p {
+      margin: 0 50px 0 0;
+      display: inline-block;
+      font-weight: 500;
+    }
+    @keyframes moveLeft {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #111;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f7a1f3;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: #ffe6ff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #05acfa;
+    }
+
+    /* === BOTÓN DE MÚSICA NEÓN === */
+    .audio-btn {
+      display: flex;
+      align-items:baseline;
+      justify-content: left;
+      padding: 10;
+    }
+
+    #audioButton {
+       width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0,255,255,0.3); /* más intenso para que se note */
+  transition: all 0.3s ease;
+  position: relative;
+  outline: none;
+  animation: subtlePulse 2s infinite ease-in-out; /* animación siempre activa */
+}
+
+@keyframes subtlePulse {
+  0% { transform: scale(1); box-shadow: 0 0 8px rgba(0,255,255,0.2); }
+  50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(0,255,255,0.4); }
+  100% { transform: scale(1); box-shadow: 0 0 8px rgba(0,255,255,0.2); }
+}
+    
+
+    #audioButton::before {
+      content: "🔇";
+      font-size: 1.5rem;
+      color: #fff;
+      position: absolute;
+      top: 22%;
+      left: 22%;
+      text-shadow: 0 0 10px #000;
+      transition: all 0.3s ease;
+      
+    }
+
+    #audioButton.on {
+      background: linear-gradient(135deg, #00ffff, #ff00ff);
+      box-shadow: 0 0 25px #0ff, 0 0 40px #f0f, 0 0 80px #0ff;
+      animation: pulse 1.5s infinite ease-in-out;
+    }
+
+    #audioButton.on::before {
+      content: "🔊";
+      transform: scale(1.2);
+      text-shadow: 0 0 20px #0ff, 0 0 30px #f0f;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    /* Header con video */
+    header {
+      position: relative;
+      height: 70vh;
+      text-align: center;
+      overflow: hidden;
+    }
+    header video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(0.6);
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-top: 100px;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #ffe6ff;
+      margin-top: 10px;
+    }
+    header .cta {
+      margin-top: 30px;
+      display: inline-block;
+      background-color: #9a30ec;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    header .cta:hover {
+      background-color: #05acfa;
+    }
+
+    /* Contenido principal */
+    main {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+    main h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #a1cdf7;
+      font-size: 2rem;
+    }
+
+    /* --- Encabezado del carrusel --- */
+    .carousel-header {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .carousel-header .ver-todo {
+      background-color: #d9d9d9;
+      color: #000;
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .carousel-controls .arrow {
+      width: 35px;
+      height: 35px;
+      border: none;
+      border-radius: 50%;
+      background-color: #f0f0f0;
+      color: #333;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .carousel-controls .arrow:hover {
+      background-color: #9a30ec;
+      color: #fff;
+      transform: scale(1.1);
+    }
+
+    /* --- Carrusel --- */
+    .carousel-container {
+      width: 100vw;
+      max-width: 1200px; 
+      overflow: hidden;
+      position: relative;
+     margin: 0 auto 50px auto;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 20px;
+      transition: transform 0.5s ease;
+    }
+
+    .carousel-item {
+      min-width: 320px;
+      margin-right: 25px;
+    }
+
+    /* --- Tarjetas --- */
+    .product-card {
+      flex: 0 0 calc(25% - 15px); /* Mostrar 4 productos visibles completos */
+  background: conic-gradient(from var(--angle), #ff00ff, #00ffff, #00ff00, #ffff00, #ff00ff);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 35px rgba(154,48,236,0.25);
+    }
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .product-card h3 {
+      color: #000;
+      margin-bottom: 10px;
+    }
+    .product-card p {
+      color: #3701fd;
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+    .product-card .btn {
+      background-color: #9a30ec;
+      color: white;
+      padding: 10px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .product-card .btn:hover {
+      background-color: #05acfa;
+    }
+    .carousel-btn {
+  position: absolute;
+  top: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+.carousel-btn:hover {
+  background: #9a30ec;
+  color: white;
+}
+
+.carousel-btn.prev {
+  right: 60px; /* Ajusta según te guste */
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+.modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .modal.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 90%;
+      padding: 30px;
+      position: relative;
+      box-shadow: 0 0 20px rgba(0,0,0,0.25);
+      animation: fadeInUp 0.5s ease forwards;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 20px;
+      color: #4a8add;
+      text-align: center;
+    }
+
+    .modal-content label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .modal-content input, 
+    .modal-content textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .modal-content button {
+      background-color: #004aad;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      user-select: none;
+    }
+
+    .modal-content button:hover {
+      background-color: #002f6c;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #004aad;
+      user-select: none;
+    }
+
+
+    /* Footer */
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 40px 20px;
+      color: #e66deb;
+      margin-top: 60px;
+    }
+    footer a {
+      color: #f7a1f3;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    /* --- Carrito lateral --- */
+.cart-icon {
+  cursor: pointer;
+  font-size: 1.1rem;
+  position: relative;
+}
+
+#cart-count {
+  background-color: #ff4081;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 7px;
+  font-size: 0.8rem;
+  position: absolute;
+  top: -10px;
+  right: -12px;
+}
+
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: -350px;
+  width: 320px;
+  height: 100vh;
+  background-color: #fff;
+  color: #333;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+  transition: right 0.4s ease;
+  padding: 20px;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-panel.open {
+  right: 0;
+}
+
+.cart-panel h3 {
+  margin-bottom: 15px;
+  color: #9a30ec;
+  text-align: center;
+}
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 8px 0;
+}
+
+.cart-item button {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.cart-total {
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.clear-cart {
+  background-color: #9a30ec;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.clear-cart:hover {
+  background-color: #05acfa;
+}
+body, .product-card, .navbar, footer {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+/* Variables para colores */
+:root {
+  --bg-color: #000;
+  --text-color: #fff;
+  --primary-color: #9a30ec;
+  --secondary-color: #05acfa;
+  --card-bg: #ffe6ff;
+  --navbar-bg: #111;
+  --footer-bg: #111;
+  --topbar-bg: #7b17b8;
+  --topbar-text: #ffe6ff;
+}
+
+
+/* Aplicar variables */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.navbar {
+  background-color: var(--navbar-bg);
+  transition: background-color 0.5s ease;
+}
+
+.top-bar {
+  background-color: var(--topbar-bg);
+  color: var(--topbar-text);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+footer {
+  background-color: var(--footer-bg);
+  color: var(--text-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.product-card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Opcional: ajustar colores del modal y carrito */
+.cart-panel {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+  <div class="logo">Ni Kuelita Notal</div>
+  <ul class="nav-links">
+    <li><a href="DatosHistoricos.html">Historia</a></li>
+    <li><a href="rop.html">Dama</a></li>
+    <li><a href="huipiles.html">Huipiles</a></li>
+    <li><a href="guayaberas.html">Guayaberas</a></li>
+    <li><a href="manu.html">Manualidades</a></li>
+    <li><a href="ves.html">Vestidos XV</a></li>
+    <li><a href="ale.html">Alebrijes</a></li>
+  </ul>
+</nav>
+
+  <div class="top-bar">
+    <div class="carousel-text">
+      <p>✨ Artesanía que nace de la tierra.</p>
+      <p>🌸 Cada pieza cuenta una historia.</p>
+      <p>🎁 Más que artesanía, identidad.</p>
+      <p>💜 Llévate un pedazo de Oaxaca</p>
+    </div>
+  </div>
+    </div>
+
+<!-- 🎵 BOTÓN DE MÚSICA NEÓN -->
+      <div class="audio-btn">
+        <button id="audioButton"></button>
+        <audio id="myAudio" src="Audio.MP3" loop></audio>
+      </div>
+    </div>
+
+  <header>
+    <video autoplay muted loop playsinline>
+      <source src="Artesanias2.mp4" type="video/mp4">
+      Tu navegador no soporta video HTML5.
+    </video>
+    <h1>Ni Kuelita Notal a tu servicio</h1>
+    <p>Artesanías oaxaqueñas hechas para ti</p>
+    <a href="#productos" class="cta">Explora nuestra colección</a>
+  </header>
+
+  <main id="productos">
+  <h2>Las ofertas de la temporada</h2>
+  <div class="carousel-container" id="carousel-container">
+    <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
+    <button class="carousel-btn next" aria-label="Siguiente">&#10095;</button>
+
+    <div class="carousel" id="carousel">
+      <!-- Productos -->
+      <div class="product-card">
+        <img src="Fotos de los productos/20260102_101011.jpg" alt="Ropa artesanal">
+        <h3>Morral Noche Telar</h3>
+        <p>$120 MXN</p>
+        <a href="VERMAS.HTML" class="btn">Ver más</a>
+      </div>
+      <div class="product-card">
+        <img src="Fotos de los productos/20260102_101114.jpg" alt="Manualidades">
+        <h3>Blusa Caminos del Viento</h3>
+        <p>$350 MXN</p>
+        <a href="VERMAS.HTML" class="btn">Ver más</a>
+      </div>
+      <div class="product-card">
+        <img src="ropa2/35891265-020b-4eea-a0a9-c73e10289ece.jpg" alt="Vestidos de fiesta">
+        <h3>Vestido primavera con Bordado floral</h3>
+        <p>$270 MXN</p>
+        <a href="VERMAS.HTML" class="btn">Ver más</a>
+      </div>
+      <div class="product-card">
+        <img src="ropa2/0af893ac-75a5-4536-9a5b-aa5185d26450.jpg" alt="Alebrijes">
+        <h3>Blusa con bordado y mangas con olanes</h3>
+        <p>$260 MXN</p>
+        <a href="VERMAS.HTML" class="btn">Ver más</a>
+      </div>
+      <div class="product-card">
+        <img src="ropa2/descarga (7).jpg" alt="Ropa">
+        <h3>Blusa Tradicional con rosales</h3>
+        <p>$290 MXN</p>
+        <a href="VERMAS.HTML" class="btn">Ver más</a>
+      </div>
+      <div class="product-card">
+        <img src="Fotos de los productos/blusa5.jpg" alt="Manualidades">
+        <h3>Blusa Amanecer Ancestral</h3>
+        <p>$450 MXN</p>
+        <a href="VERMAS.HTML" class="btn">Ver más</a>
+      </div>
+      <div class="product-card">
+        <img src="Fotos de los productos/cinta para cabello.jpg" alt="Vestidos de fiesta">
+        <h3>Colgantes Colores del Alma</h3>
+        <p>$90 MXN</p>
+        <a href="VERMAS.HTML" class="btn">Ver más</a>
+      </div>
+      <div class="product-card">
+        <img src="Fotos de los productos/llaveros (3).jpg" alt="Alebrijes">
+        <h3>Llavero Espíritu del Mezcal</h3>
+        <p>$25 MXN</p>
+        <a href="VERMAS.HTML" class="btn">Ver más</a>
+      </div>
+       <div class="product-card">
+        <img src="Fotos de los productos/monedero (2).jpg" alt="Alebrijes">
+        <h3>Monedero Bordado Fiesta del Pueblo</h3>
+        <p>$90 MXN</p>
+        <a href="VERMAS.HTML" class="btn">Ver más</a>
+      </div>
+       <div class="product-card">
+        <img src="Fotos de los productos/pulsera bordada (2).jpg" alt="Alebrijes">
+        <h3>Pulceras Camino de Colores</h3>
+        <p>$25 MXN</p>
+        <a href="VERMAS.HTML" class="btn">Ver más</a>
+      </div>
+    </div>
+  </div>
+</main>
+<footer>
+  <p>&copy; 2025 NiKuelitaNotal. Todos los reservado para ti.</p>
+  <div class="social-links" aria-label="Redes sociales">
+    <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer"></a>
+    <a href="#" aria-label="Twitter" target="_blank" rel="noopener noreferrer"></a>
+    <a href="#" aria-label="Instagram" target="_blank" rel="noopener noreferrer"></a>
+  </div>
+</footer>
+
+<style>
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto 50px auto;
+  }
+
+  .carousel {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+  }
+
+  .product-card {
+    flex: 0 0 calc(25% - 15px);
+    background: #ffe6ff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+
+  .product-card h3 { color: #000; margin-bottom: 10px; }
+  .product-card p { color: #3701fd; font-size: 1rem; margin-bottom: 15px; }
+  .product-card .btn {
+    background-color: #9a30ec;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+  }
+  .product-card .btn:hover { background-color: #05acfa; }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+    cursor: pointer;
+    user-select: none;
+    color: #333;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+  }
+
+  .carousel-btn:hover {
+    background: #9a30ec;
+    color: white;
+  }
+
+  .carousel-btn.prev { left: 10px; }
+  .carousel-btn.next { right: 10px; }
+
+  @media (max-width: 1024px) { .product-card { flex: 0 0 calc(33.33% - 15px); } }
+  @media (max-width: 768px) { .product-card { flex: 0 0 calc(50% - 15px); } }
+  @media (max-width: 480px) { .product-card { flex: 0 0 calc(100% - 15px); } }
+</style>
+
+<script>
+
+const carousel = document.getElementById('carousel');
+const container = document.getElementById('carousel-container');
+const prevBtn = container.querySelector('.carousel-btn.prev');
+const nextBtn = container.querySelector('.carousel-btn.next');
+
+let currentIndex = 0;
+let autoMoveInterval;
+
+function updateCarousel() {
+  const cardWidth = carousel.children[0].offsetWidth + 20;
+  carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+}
+
+function showNext() {
+  const itemsVisible = Math.floor(container.offsetWidth / (carousel.children[0].offsetWidth + 20));
+  currentIndex++;
+  if (currentIndex > carousel.children.length - itemsVisible) {
+    currentIndex = 0; // Loop infinito
+  }
+  updateCarousel();
+}
+
+function showPrev() {
+  const itemsVisible = Math.floor(container.offsetWidth / (carousel.children[0].offsetWidth + 20));
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = carousel.children.length - itemsVisible; // Loop infinito
+  }
+  updateCarousel();
+}
+
+function startAutoMove() {
+  autoMoveInterval = setInterval(showNext, 3000);
+}
+
+function resetAutoMove() {
+  clearInterval(autoMoveInterval);
+  startAutoMove();
+}
+
+nextBtn.addEventListener('click', () => {
+  showNext();
+  resetAutoMove(); // Reinicia el temporizador al hacer clic manual
+});
+
+prevBtn.addEventListener('click', () => {
+  showPrev();
+  resetAutoMove(); // Reinicia el temporizador al hacer clic manual
+});
+
+// Iniciar movimiento automático
+startAutoMove();
+
+
+// ==== CARRITO DE COMPRAS ====
+let cart = [];
+
+function toggleCart() {
+  document.getElementById('cart-panel').classList.toggle('open');
+}
+
+function addToCart(name, price) {
+  cart.push({ name, price });
+  updateCart();
+}
+
+function updateCart() {
+  const itemsContainer = document.querySelector('.cart-items');
+  const countElement = document.getElementById('cart-count');
+  itemsContainer.innerHTML = '';
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    total += item.price;
+    itemsContainer.innerHTML += `
+      <div class="cart-item">
+        <span>${item.name}</span>
+        <span>$${item.price}</span>
+        <button onclick="removeItem(${index})">✖</button>
+      </div>
+    `;
+  });
+
+  document.querySelector('.cart-total').textContent = `Total: $${total} MXN`;
+  countElement.textContent = cart.length;
+}
+
+function removeItem(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+function clearCart() {
+  cart = [];
+  updateCart();
+}
+ /* === CONTROLADOR DEL BOTÓN DE MÚSICA === */
+    const button = document.getElementById("audioButton");
+    const audio = document.getElementById("myAudio");
+    let isPlaying = false;
+
+    button.addEventListener("click", () => {
+      if (!isPlaying) {
+        audio.play();
+        button.classList.add("on");
+      } else {
+        audio.pause();
+        button.classList.remove("on");
+      }
+      isPlaying = !isPlaying;
+    });
+
+</script>
+
+<div id="panel-secreto" style="display: none; text-align: center; padding: 20px; background: #000; border: 2px dashed #d4af37; margin: 20px;">
+    <h3 style="color: #d4af37; font-family: 'Courier New', monospace;">MODO ADMINISTRADOR</h3>
+    <button onclick="limpiarYActualizar()" 
+        style="background: #d4af37; color: #000; border: none; padding: 12px 24px; cursor: pointer; font-family: 'Courier New', monospace; text-transform: uppercase; font-weight: bold;">
+        RE-ACTIVAR TODOS LOS PRODUCTOS
+    </button>
+    <p style="color: #fff; font-size: 10px; margin-top: 10px;">Presiona 'Esc' para ocultar de nuevo</p>
+</div>
+
+<script>
+// 1. Escuchar el teclado para mostrar el panel secreto
+document.addEventListener('keydown', function(event) {
+    // Si presionas la letra 'a' o 'A', aparece el botón
+    if (event.key === 'a' || event.key === 'A') {
+        document.getElementById('panel-secreto').style.display = 'block';
+        // Hace scroll automático hasta el botón para que lo veas
+        document.getElementById('panel-secreto').scrollIntoView({behavior: 'smooth'});
+    }
+    
+    // Si presionas 'Escape', se vuelve a ocultar
+    if (event.key === 'Escape') {
+        document.getElementById('panel-secreto').style.display = 'none';
+    }
+});
+
+// 2. La función que ya conoces para resetear en la misma página
+function limpiarYActualizar() {
+    localStorage.clear(); 
+    window.location.reload(); // Recarga la misma ventana
+}
+</script>
+</html>

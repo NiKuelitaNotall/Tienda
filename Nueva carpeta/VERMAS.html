@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="VERMAS.CSS">
+  <title>VERMAS</title>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <a href="index.html">
+    <img class="logo" src="logop.png" alt="logo">
+  </a>
+
+  <ul class="nav-links">
+   <ul class="nav-links">
+    <li><a href="rop.html">Dama</a></li>
+     <li><a href="huipiles.html">Huipiles</a></li>
+      <li><a href="guayaberas.html">Guayaberas</a></li>
+    <li><a href="manu.html">Manualidades</a></li>
+    <li><a href="ves.html">Vestidos XV</a></li>
+    <li><a href="ale.html">Alebrijes</a></li>
+
+    <li class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
+    </li>
+  </ul>
+</nav>
+
+<div class="top-bar">
+    <div class="carousel-text">
+      <p>✨ Lo que esperabas, al precio que soñabas.</p>
+      <p>🌸 Ahorra mientras dure la temporada.</p>
+      <p>🎁 Ofertas de temporada que te harán sonreír.</p>
+      <p>💜 Compra ahora, disfruta todo el año</p>
+    </div>
+  </div>
+
+<!-- CARRITO -->
+<div class="cart-panel" id="cart-panel">
+  <span class="cerrar-cart" onclick="toggleCart()">✖</span>
+  <h3>Tu carrito 🛍️</h3>
+  <div class="cart-items"></div>
+  <div class="cart-total">Total: $0 MXN</div>
+  <a href="formulario.html" style="background-color: #6772e5; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-weight: bold;">
+    Proceder al Envío
+  </a>
+</div>
+<!-- Stripe -->
+<!-- PRODUCTOS -->
+<section class="productos">
+  <h2 class="section-title">El pasado en el presente con estilo</h2>
+
+  <div class="grid-productos">
+
+    <!-- EJEMPLO DE PRODUCTO CORREGIDO -->
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/20260102_101011.jpg">
+      <h3>Morral Noche de Telar</h3>
+      <p class="precio">$120 MXN</p>
+      <p class="descripcion">Morral artesanal elaborado en telar tradicional en tonos negros y rojos que evocan la fuerza de la noche y la herencia cultural.</p>
+
+      <button class="btn" data-id="Morral Noche de Telar"
+      onclick="addToCart('Morral Noche de Telar', 120,'Morral Noche de Telar')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/20260102_101114.jpg">
+      <h3>Blusa Caminos del Viento</h3>
+      <p class="precio">$350 MXN</p>
+      <p class="descripcion">Blusa con hombros descubiertos, decorada con bordado floralde colores vibrantes .</p>
+
+      <button class="btn" data-id="Blusa Caminos del Viento"
+      onclick="addToCart('Blusa Caminos del Viento', 350,'Blusa Caminos del Viento')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/35891265-020b-4eea-a0a9-c73e10289ece.jpg">
+      <h3>Vestido primavera con Bordado floral</h3>
+      <p class="precio">$270 MXN</p>
+      <p class="descripcion">Vestido blanca estilo artesanal con bordado floral multicolor en la parte frontal. Confeccionada en tela ligera</p>
+
+      <button class="btn" data-id="estido primavera con Bordado floral"
+      onclick="addToCart('Vestido primavera con Bordado floral', 270,'estido primavera con Bordado floral')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/0af893ac-75a5-4536-9a5b-aa5185d26450.jpg">
+      <h3>Blusa con bordado y mangas con olanes</h3>
+      <p class="precio">$260 MXN</p>
+      <p class="descripcion">Blusa blanca de estilo tradicional con bordado floral multicolor en el pecho. Cuenta con mangas cortas con olanes elegantes.</p>
+
+      <button class="btn"data-id="Blusa con bordado y mangas con olanes"
+       onclick="addToCart('Blusa con bordado y mangas con olanes', 260,'Blusa con bordado y mangas con olanes')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/descarga (7).jpg">
+      <h3>Blusa Tradicional con rosales</h3>
+      <p class="precio">$290 MXN</p>
+      <p class="descripcion">Blusa blanca con cuello cuadrado contorneado por rosas bordadas.</p>
+
+      <button class="btn" data-id="Blusa Tradicional con rosales"
+      onclick="addToCart('Blusa Tradicional con rosales', 290,'Blusa Tradicional con rosales')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/blusa5.jpg">
+      <h3>Blusa Amanecer Ancestral</h3>
+      <p class="precio">$450 MXN</p>
+      <p class="descripcion">Blusa clara con bordado central en tonos vivos que simbolizan el amanecer y la continuidad de las tradiciones.</p>
+
+      <button class="btn"data-id="Blusa Amanecer Ancestral"
+       onclick="addToCart('Blusa Amanecer Ancestral', 450,'Blusa Amanecer Ancestral')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/cinta para cabello.jpg">
+      <h3>Colgantes Colores del Alma</h3>
+      <p class="precio">$90 MXN</p>
+      <p class="descripcion">Colgantes artesanales elaborados con hilos y borlas de colores vibrantes.</p>
+
+      <button class="btn" data-id="Colgantes Colores del Alma"
+      onclick="addToCart('Colgantes Colores del Alma', 90,'Colgantes Colores del Alma')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/llaveros (3).jpg">
+      <h3>Llavero Espíritu del Mezcal</h3>
+      <p class="precio">$25 MXN</p>
+      <p class="descripcion">lavero artesanal con figura de botella, inspirado en la cultura festiva y tradicional de México.</p>
+
+      <button class="btn" data-id="Llavero Espíritu del Mezcal"
+      onclick="addToCart('Llavero Espíritu del Mezcal', 25,'Llavero Espíritu del Mezcal')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/monedero (2).jpg">
+      <h3>Monedero Bordado Fiesta del Pueblo</h3>
+      <p class="precio">$90 MXN</p>
+      <p class="descripcion">Parche bordado a mano con chaquiras y motivos tradicionales que representan la vida comunitaria y las celebraciones populares.</p>
+
+      <button class="btn"data-id="Parche Bordado Fiesta del Pueblo"
+       onclick="addToCart('Parche Bordado Fiesta del Pueblo', 90,'Parche Bordado Fiesta del Pueblo')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/pulsera de chaquira.jpg">
+      <h3>Pulceras Camino de Colores</h3>
+      <p class="precio">$25 MXN</p>
+      <p class="descripcion">Colección de collares artesanales elaborados con cuentas multicolores. Cada hilo simboliza los caminos que unen culturas y tradiciones.</p>
+
+      <button class="btn" data-id="Pulceras Camino de Colores"
+      onclick="addToCart('Pulceras Camino de Colores', 25,'Pulceras Camino de Colores')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/camisa de hombre.jpg">
+      <h3>Camisa Tradicional Sendero Ancestral</h3>
+      <p class="precio">$250 MXN</p>
+      <p class="descripcion">Camisa artesanal en tono claro con detalles bordados en el frente y mangas. Inspirada en la vestimenta mixteca.</p>
+
+      <button class="btn"data-id="Camisa Tradicional Sendero Ancestral"
+       onclick="addToCart('Camisa Tradicional Sendero Ancestral', 250,'Camisa Tradicional Sendero Ancestral')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/llaveros (4).jpg">
+      <h3>Llavero Raíces de Oaxaca</h3>
+      <p class="precio">$20 MXN</p>
+      <p class="descripcion">Llavero artesanal con textiles tradicionales y la palabra Oaxaca como símbolo de identidad y orgullo cultural.</p>
+
+      <button class="btn" data-id="Llavero Raíces de Oaxaca"
+      onclick="addToCart('Llavero Raíces de Oaxaca', 20,'Llavero Raíces de Oaxaca')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/20260102_101539.jpg">
+      <h3> Bolsa Verde Monte Sagradol</h3>
+      <p class="precio">$75 MXN</p>
+      <p class="descripcion"> Bolsa tradicional tejida en telar en tono verde profundo, inspirada en la naturaleza y los montes sagrados.</p>
+
+      <button class="btn"data-id="Bolsa Verde Monte Sagrado"
+       onclick="addToCart('Bolsa Verde Monte Sagrado', 75,'Bolsa Verde Monte Sagrado')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/bolsa.jpg">
+      <h3>Bolsa Fuego del Telar</h3>
+      <p class="precio">$150 MXN</p>
+      <p class="descripcion">Bolsa artesanal en tonos magenta con líneas tejidas a mano que reflejan la energía y el ritmo del telar tradicional.</p>
+
+      <button class="btn" data-id="Bolsa Fuego del Telar"
+      onclick="addToCart('Bolsa Fuego del Telar', 150,'Bolsa Fuego del Telar')">
+        Agregar al carrito
+      </button>
+    </div>
+    
+
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/blusa 4.jpg">
+      <h3>Blusa Jardín Nocturno</h3>
+      <p class="precio">$350 MXN</p>
+      <p class="descripcion">Blusa negra con bordado floral multicolor.</p>
+
+      <button class="btn" data-id="Blusa Jardín Nocturno"
+       onclick="addToCart('Blusa Jardín Nocturno', 350,'Blusa Jardín Nocturno')">
+        Agregar al carrito
+      </button>
+    </div>
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/blusa6.jpg">
+      <h3>Blusa Brisa del Algodón</h3>
+      <p class="precio">$450 MXN</p>
+      <p class="descripcion">Blusa blanca artesanal con delicados bordados florales en el pecho. Ligera, fresca y cómoda.</p>
+
+      <button class="btn" data-id="Blusa Brisa del Algodón"
+      onclick="addToCart('Blusa Brisa del Algodón', 450,'Blusa Brisa del Algodón')">
+        Agregar al carrito
+      </button>
+    </div>
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/llaveros (1).jpg">
+      <h3>Llavero Muñequitas del Corazón</h3>
+      <p class="precio">$70 MXN</p>
+      <p class="descripcion">Llavero artesanal con pequeñas muñequitas bordadas y borlas de colores vivos.</p>
+
+      <button class="btn" data-id="Llavero Muñequitas del Corazón"
+       onclick="addToCart('Llavero Muñequitas del Corazón', 70,'Llavero Muñequitas del Corazón')">
+        Agregar al carrito
+      </button>
+    </div>
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="Fotos de los productos/llaveros (5).jpg">
+      <h3>Llavero Camino del Telar</h3>
+      <p class="precio">$50 MXN</p>
+      <p class="descripcion">Llavero artesanal elaborado con textil tradicional y detalles en cuero.</p>
+
+      <button class="btn" data-id="Llavero Camino del Telar"
+      onclick="addToCart('Llavero Camino del Telar', 50,'Llavero Camino del Telar')">
+        Agregar al carrito
+      </button>
+
+    <!--  
+       Puedes repetir este formato limpio para todos tus productos.
+      Ya no usas <form> porque no lo necesitas.
+    -->
+
+  </div>
+</section>
+<!-- SCRIPT -->
+ <script>
+/* ====== STORAGE ====== */
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let agotados = JSON.parse(localStorage.getItem("agotados")) || [];
+
+/* ====== CARRITO ====== */
+function renderCart() {
+    const items = document.querySelector(".cart-items");
+    const totalEl = document.querySelector(".cart-total");
+    const countEl = document.getElementById("cart-count");
+
+    if(!items) return; // Seguridad por si el panel no existe
+
+    items.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        items.innerHTML += `
+            <div class="cart-item">
+                <span>${item.nombre}</span>
+                <span>$${item.precio}</span>
+                <button class="eliminar" onclick="removeItem(${index})">Eliminar</button>
+            </div>
+        `;
+        total += item.precio;
+    });
+
+    totalEl.textContent = `Total: $${total} MXN`;
+    countEl.textContent = cart.length;
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+/* ====== AGREGAR / ELIMINAR ====== */
+function addToCart(nombre, precio, id) {
+    if (agotados.includes(id)) return;
+    cart.push({ nombre, precio, id });
+    agotados.push(id);
+    localStorage.setItem("agotados", JSON.stringify(agotados));
+    renderCart();
+    marcarAgotados();
+}
+
+function removeItem(index) {
+    const item = cart.splice(index, 1)[0];
+    agotados = agotados.filter(pid => pid !== item.id);
+    localStorage.setItem("agotados", JSON.stringify(agotados));
+    renderCart();
+    marcarAgotados();
+}
+
+function marcarAgotados() {
+    document.querySelectorAll("button[data-id]").forEach(btn => {
+        if (agotados.includes(btn.dataset.id)) {
+            btn.textContent = "AGOTADO";
+            btn.disabled = true;
+        } else {
+            btn.textContent = "Agregar al carrito";
+            btn.disabled = false;
+        }
+    });
+}
+
+function toggleCart() {
+    document.getElementById("cart-panel").classList.toggle("open");
+}
+
+/* ====== INICIALIZAR ====== */
+document.addEventListener("DOMContentLoaded", () => {
+    renderCart();
+    marcarAgotados();
+});
+</script>
+</body>
+</html>
+s

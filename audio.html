@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Web con Audio</title>
+</head>
+<body>
+  <!-- Reproductor invisible -->
+  <audio id="miAudio" src="audio.mp3" autoplay loop></audio>
+
+  <!-- Menú de navegación -->
+  <nav>
+    <a href="#" onclick="cargarApartado('VERMAS.html')">Apartado 1</a>
+    <a href="#" onclick="cargarApartado('ROPA.HTML')">Apartado 2</a>
+    <a href="#" onclick="cargarApartado('HISTORIA.html')">Apartado 3</a>
+    <a href="#" onclick="cargarApartado('HUIPILES.HTML')">Apartado 4</a>
+    <a href="#" onclick="cargarApartado('Guayaberas.html')">Apartado 5</a>
+    <a href="#" onclick="cargarApartado('Vestidos.html')">Apartado 6</a>
+    <a href="#" onclick="cargarApartado('Manualidades.html')">Apartado 7</a>
+    <a href="#" onclick="cargarApartado('AlebrijeS.html')">Apartado 8</a>
+  </nav>
+
+  <!-- Contenedor donde se cargará cada sección -->
+  <div id="contenido"></div>
+
+  <script>
+    function cargarApartado(pagina) {
+      fetch(pagina)
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('contenido').innerHTML = html;
+        });
+    }
+
+    // Cargar el primer apartado al inicio
+    cargarApartado('apartado1.html');
+  </script>
+</body>
+</html>

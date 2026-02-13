@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="ves.css">
+  <title>Vestidos</title>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <a href="index.html">
+    <img class="logo" src="logop.png" alt="logo">
+  </a>
+
+ <ul class="nav-links">
+    <li><a href="rop.html">Dama</a></li>
+     <li><a href="huipiles.html">Huipiles</a></li>
+      <li><a href="guayaberas.html">Guayaberas</a></li>
+    <li><a href="manu.html">Manualidades</a></li>
+    <li><a href="ves.html">Vestidos XV</a></li>
+    <li><a href="ale.html">Alebrijes</a></li>
+
+    <li class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
+    </li>
+  </ul>
+</nav>
+
+<div class="top-bar">
+    <div class="carousel-text">
+      <p>✨ Tu cuento de hadas comienza aquí.</p>
+      <p>🌸 El vestido de tus sueños, hecho realidad.</p>
+      <p>🎁 Deslumbra en tu gran día.</p>
+      <p>💜 La noche es tuya. Viste como lo soñaste.</p>
+    </div>
+  </div>
+
+<!-- CARRITO -->
+<div class="cart-panel" id="cart-panel">
+  <span class="cerrar-cart" onclick="toggleCart()">✖</span>
+  <h3>Tu carrito 🛍️</h3>
+  <div class="cart-items"></div>
+  <div class="cart-total">Total: $0 MXN</div>
+  <a href="formulario.html" style="background-color: #af19f5; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; text-align: center;">
+    Proceder al Envío
+  </a>
+</div>
+<!-- Stripe -->
+<script src="https://js.stripe.com/v3/"></script>
+
+
+
+<!-- PRODUCTOS -->
+<section class="productos">
+  <h2 class="section-title">Un sueño artesanal para un día inolvidable</h2>
+
+  <div class="grid-productos">
+
+    <!-- EJEMPLO DE PRODUCTO CORREGIDO -->
+          <div class="producto-card" data-color="azul" data-talla="grande" data-tipo="sirena">
+        <img src="Vestidos de XV/24a84624d174a8cb0adb9b30beaa3a4c.jpg" alt="Blusa tradicional">
+        <h3>Flor de Noche</h3>
+        <p class="precio">$20500 MXN</p>
+        <p class="descripcion">Vestido negro con bordado floral vibrante y falda amplia.</p>
+        <button class="btn" data-id="Flor de Noche"
+         onclick="addToCart('Flor de Noche', 20500,'Flor de Noche')">Agregar al carrito</button>
+      </div>
+
+      <!-- Producto 2 -->
+     <div class="producto-card" data-color="blanco" data-talla="pequeña" data-tipo="moderno">
+        <img src="Vestidos de XV/charro05.jpg" alt="Vestido para niña">
+        <h3>Jardín Oaxaqueño</h3>
+        <p class="precio">$26000 MXN</p>
+        <p class="descripcion">Diseño colorido con flores bordadas a mano y gran volumen.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Vestido Infantil">
+          <input type="hidden" name="precio" value="380">
+          <button class="btn"data-id="Jardín Oaxaqueño"
+           onclick="addToCart('Jardín Oaxaqueño', 26000,'Jardín Oaxaqueño')">Agregar al carrito</button>
+
+        </form>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/e39599552ed317ccb22f1b96f0bb3fb9.jpg" alt="Blusa tradicional">
+        <h3>Alma de Fiesta.</h3>
+        <p class="precio">$19500 MXN</p>
+        <p class="descripcion">Vestido tradicional con bordados intensos y presencia elegante.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa Tradicional">
+          <input type="hidden" name="precio" value="500">
+         <button class="btn"data-id="Alma de Fiesta"
+         onclick="addToCart('Alma de Fiesta', 19500,'Alma de Fiesta')">Agregar al carrito</button>
+        </form>
+      </div>
+
+      <!-- Producto 4 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/H07160d12c8204ffbbf81538d4b72e586q.jpg" alt="Alebrije">
+        <h3>Encanto en Capas</h3>
+        <p class="precio">$23900 MXN</p>
+        <p class="descripcion">Vestido con múltiples capas y bordados florales delicados.</p>
+       <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Alebrije">
+          <input type="hidden" name="precio" value="700">
+         <button class="btn" data-id="Encanto en Capas"
+         onclick="addToCart('Encanto en Capas', 23900,'Encanto en Capas')">Agregar al carrito</button>
+        </form>
+      </div>
+
+      <!-- Producto 5 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/images.jfif" alt="Blusa tradicional">
+        <h3>Sueño Bordado</h3>
+        <p class="precio">$28400 MXN</p>
+        <p class="descripcion">Falda amplia con flores artesanales y movimiento elegante.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn" data-id="Sueño Bordado"
+          onclick="addToCart('Sueño Bordado', 28400,'Sueño Bordado')">Agregar al carrito</button>
+        </form>
+      </div>
+<!-- Producto 6 -->
+     <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/S4bb44f8511c14a6f8fd6cf93ebd5c0241.jpg_640x640q90.webp" alt="Blusa tradicional">
+        <h3>Tradición en Vuelo</h3>
+        <p class="precio">$28000 MXN</p>
+        <p class="descripcion">Diseño ligero con capas bordadas llenas de color.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn" data-id="Tradición en Vuelo"
+         onclick="addToCart('Tradición en Vuelo', 28000,'Tradición en Vuelo')">Agregar al carrito</button>
+        </form>
+      </div>
+      <!-- Producto 7 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/v1.jpg" alt="Blusa tradicional">
+        <h3>Luz Campesina (manga corta)</h3>
+        <p class="precio">$30000 MXN</p>
+        <p class="descripcion">Vestido fresco con bordados florales artesanales..</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn"data-id="Luz Campesina"
+          onclick="addToCart('Luz Campesina (manga corta)', 3000,'Luz Campesina')">Agregar al carrito</button>
+        </form>
+      </div>
+      <!-- Producto 8 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/v2.jpg" alt="Blusa tradicional">
+        <h3>Raíz Elegante (tres cuartos)</h3>
+        <p class="precio">$19000 MXN</p>
+        <p class="descripcion">Diseño tradicional con mangas tres cuartos y bordado fino.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn" data-id="Raíz Elegante"
+        onclick="addToCart('Raíz Elegante (tres cuartos)', 19000,'Raíz Elegante')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 9 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/v3.jpg" alt="Blusa tradicional">
+        <h3>Herencia Floral (manga larga)</h3>
+        <p class="precio">$23000 MXN</p>
+        <p class="descripcion">Vestido sofisticado con mangas largas y bordado detallado.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn"data-id="Herencia Floral"
+          onclick="addToCart('Herencia Floral (manga larga)', 23000,'Herencia Floral')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 10 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/v4.jpg" alt="Blusa tradicional">
+        <h3>Rosa Imperial</h3>
+        <p class="precio">$28000 MXN</p>
+        <p class="descripcion">Vestido de gala con flores bordadas y acabado majestuoso.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn" data-id="Rosa Imperial"
+         onclick="addToCart('Rosa Imperial', 28000,'Rosa Imperial')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 11 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/v5.jpg" alt="Blusa tradicional">
+        <h3>Noche de Bugambilias</h3>
+        <p class="precio">$25500MXN</p>
+        <p class="descripcion">Diseño elegante con bordados intensos y falda amplia.</p>
+       <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn" data-id="Noche de Bugambilias"
+          onclick="addToCart('Noche de Bugambilias', 25500,'Noche de Bugambilias')">Agregar al carrito</button>
+
+        </form>
+      </div>
+<!-- Producto 12 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/v6.jpg" alt="Blusa tradicional">
+        <h3>Fiesta del Color</h3>
+        <p class="precio">$27600 MXN</p>
+        <p class="descripcion">Vestido de gala vibrante con flores multicolor.</p>
+        <button class="btn" data-id="Fiesta del Color"
+        onclick="addToCart('Fiesta del Color', 27600,'Fiesta del Color')">Agregar al carrito</button>
+      </div>
+<!-- Producto 13 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/v7.jpg" alt="Blusa tradicional">
+        <h3>Blanco Tradicional</h3>
+        <p class="precio">$15900 MXN</p>
+        <p class="descripcion">Vestido claro con bordado floral sutil y elegante.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn" data-id="Blanco Tradicional"
+          onclick="addToCart('Blanco Tradicional', 15900,'Blanco Tradicional')">Agregar al carrito</button>
+        </form>
+      </div>
+      <!-- Producto 14 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/v8.jpg" alt="Blusa tradicional">
+        <h3>Fondo de Raíz</h3>
+        <p class="precio">$22800 MXN</p>
+        <p class="descripcion">Diseño con base lisa y detalles florales artesanales.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn"data-id="Fondo de Raíz"
+          onclick="addToCart('Fondo de Raíz', 22800,'Fondo de Raíz')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 15 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/vn1.jpg" alt="Blusa tradicional">
+        <h3>Noche Flor de Fuego</h3>
+        <p class="precio">$24750 MXN</p>
+        <p class="descripcion">Vestido de gala negro con bordados florales vibrantes que iluminan cada movimiento.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn" data-id="Noche Flor de Fuego"
+          onclick="addToCart('Noche Flor de Fuego', 24750,'Noche Flor de Fuego')">Agregar al carrito</button>
+        </form>
+      </div>
+      <!-- Producto 16 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/vn2.jpg" alt="Blusa tradicional">
+        <h3>Jardín de Medianoche</h3>
+        <p class="precio">$28500 MXN</p>
+        <p class="descripcion">Vestido clásico con bordado tradicional y gran presencia.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn" data-id="Jardín de Medianoche"
+          onclick="addToCart('Jardín de Medianoche', 28500,'Jardín de Medianoche')">Agregar al carrito</button>
+    </div>
+     <!-- Producto 17 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/vn3.jpg" alt="Blusa tradicional">
+        <h3>Color de Raíz</h3>
+        <p class="precio">$30100 MXN</p>
+        <p class="descripcion">Blusa artesanal con bordados florales.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn"data-id="Color de Raíz"
+           onclick="addToCart('Color de Raíz', 30100,'Color de Raíz')">Agregar al carrito</button>
+    </div>
+     <!-- Producto 18 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/vn4.jpg" alt="Blusa tradicional">
+        <h3>Esencia Ancestral</h3>
+        <p class="precio">$33000 MXN</p>
+        <p class="descripcion">Vestido artesanal que fusiona tradición y elegancia.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn" data-id="Esencia Ancestral"
+          onclick="addToCart('Esencia Ancestral', 33000,'Esencia Ancestral')">Agregar al carrito</button>
+    </div>
+     <!-- Producto 19 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/vn5.png" alt="Blusa tradicional">
+        <h3>Noche Flor de Fuego</h3>
+        <p class="precio">$23400 MXN</p>
+        <p class="descripcion">Vestido de gala negro con bordados florales vibrantes que iluminan cada movimiento.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn" data-id="Noche Flor de Fuego"
+          onclick="addToCart('Noche Flor de Fuego', 23400,'Noche Flor de Fuego')">Agregar al carrito</button>
+    </div>
+     <!-- Producto 20 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/vn6.jfif" alt="Blusa tradicional">
+        <h3>Jardín oscuro</h3>
+        <p class="precio">$27900 MXN</p>
+        <p class="descripcion">Elegante falda amplia con flores multicolor bordadas a mano, ideal para ocasiones especiales.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn" data-id="Jardín oscuro"
+          onclick="addToCart('Jardín oscuro', 27900,'Jardín oscuro')">Agregar al carrito</button>
+    </div>
+     <!-- Producto 21 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/vn6.jpg" alt="Blusa tradicional">
+        <h3>Alma Mexicana</h3>
+        <p class="precio">$29530 MXN</p>
+        <p class="descripcion">Diseño tradicional con bordado floral inspirado en la riqueza cultural de México.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn" data-id="Alma Mexicana"
+          onclick="addToCart('Alma Mexicana', 29530,'Alma Mexicana')">Agregar al carrito</button>
+    </div>
+     <!-- Producto 22 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/vn8.jpg" alt="Blusa tradicional">
+        <h3>Rosa del Anochecer</h3>
+        <p class="precio">$25150 MXN</p>
+        <p class="descripcion">Vestido sofisticado con flores bordadas que resaltan sobre fondo negro profundo</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn"data-id="Rosa del Anochecer"
+           onclick="addToCart('Rosa del Anochecer', 25150,'Rosa del Anochecer')">Agregar al carrito</button>
+    </div>
+     <!-- Producto 23 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/vn9.jpg" alt="Blusa tradicional">
+        <h3>Sueño Bordado</h3>
+        <p class="precio">$26800 MXN</p>
+        <p class="descripcion">Silueta clásica de gala con delicados detalles florales hechos artesanalmente.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn"data-id="Sueño Bordado"
+           onclick="addToCart('Sueño Bordado', 26800,'Sueño Bordado')">Agregar al carrito</button>
+    </div>
+     <!-- Producto 24 -->
+      <div class="producto-card" data-color="rosa" data-talla="mediana" data-tipo="princesa">
+        <img src="Vestidos de XV/vn1.jpg" alt="Blusa tradicional">
+        <h3>Esplendor Floral</h3>
+        <p class="precio">$30100 MXN</p>
+        <p class="descripcion">Vestido majestuoso con bordados coloridos que aportan elegancia y presencia.</p>
+        <form action="agregar_carrito.php" method="POST">
+
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn"data-id="Esplendor Floral"
+           onclick="addToCart('CEsplendor Floral', 3100,'Esplendor Floral')">Agregar al carrito</button>
+    </div>
+    
+
+    <!--  
+      ❗ Puedes repetir este formato limpio para todos tus productos.
+      Ya no usas <form> porque no lo necesitas.
+    -->
+
+  </div>
+</section>
+<!-- SCRIPT -->
+ <script>
+/* ====== STORAGE ====== */
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let agotados = JSON.parse(localStorage.getItem("agotados")) || [];
+
+/* ====== CARRITO ====== */
+function renderCart() {
+    const items = document.querySelector(".cart-items");
+    const totalEl = document.querySelector(".cart-total");
+    const countEl = document.getElementById("cart-count");
+
+    if(!items) return; // Seguridad por si el panel no existe
+
+    items.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        items.innerHTML += `
+            <div class="cart-item">
+                <span>${item.nombre}</span>
+                <span>$${item.precio}</span>
+                <button class="eliminar" onclick="removeItem(${index})">Eliminar</button>
+            </div>
+        `;
+        total += item.precio;
+    });
+
+    totalEl.textContent = `Total: $${total} MXN`;
+    countEl.textContent = cart.length;
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+/* ====== AGREGAR / ELIMINAR ====== */
+function addToCart(nombre, precio, id) {
+    if (agotados.includes(id)) return;
+    cart.push({ nombre, precio, id });
+    agotados.push(id);
+    localStorage.setItem("agotados", JSON.stringify(agotados));
+    renderCart();
+    marcarAgotados();
+}
+
+function removeItem(index) {
+    const item = cart.splice(index, 1)[0];
+    agotados = agotados.filter(pid => pid !== item.id);
+    localStorage.setItem("agotados", JSON.stringify(agotados));
+    renderCart();
+    marcarAgotados();
+}
+
+function marcarAgotados() {
+    document.querySelectorAll("button[data-id]").forEach(btn => {
+        if (agotados.includes(btn.dataset.id)) {
+            btn.textContent = "AGOTADO";
+            btn.disabled = true;
+        } else {
+            btn.textContent = "Agregar al carrito";
+            btn.disabled = false;
+        }
+    });
+}
+
+function toggleCart() {
+    document.getElementById("cart-panel").classList.toggle("open");
+}
+
+/* ====== INICIALIZAR ====== */
+document.addEventListener("DOMContentLoaded", () => {
+    renderCart();
+    marcarAgotados();
+});
+</script>
+</body>
+</html>

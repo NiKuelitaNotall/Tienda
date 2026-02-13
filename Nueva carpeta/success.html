@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Pago exitoso | Ni Küelita Notal</title>
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+  window.jsPDF = window.jspdf.jsPDF;
+</script>
+
+<!-- html2canvas -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<style>
+body {
+    font-family: "Montserrat", sans-serif;
+    background: #f8f5e6;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CONTENEDOR GENERAL */
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* TICKET */
+.ticket {
+    width: 400px;
+    background: black;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0,0,0,.35);
+    border: 3px solid #d4af37;
+    text-align: center;
+}
+
+#ticket-area {
+    position: relative;
+    overflow: hidden;
+}
+
+#ticket-area::before {
+    content: "NK"; /* Iniciales de tu marca */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 100px;
+    color: rgba(212, 175, 55, 0.05); /* Muy transparente */
+    z-index: 0;
+}
+
+.logo {
+    width: 90px;
+    margin-bottom: 10px;
+}
+
+.titulo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #d4af37;
+}
+
+.subtitulo {
+    font-size: 14px;
+    color: #d4af37;
+    margin-bottom: 10px;
+}
+
+.linea {
+    border-top: 2px dotted #d4af37;
+    margin: 12px 0;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    align-items: center;
+    color: #d4af37;
+    margin-bottom: 5px;
+    padding: 4px 0;
+}
+
+.total {
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    color: #d4af37;
+    margin-top: 10px;
+}
+
+.footer {
+    font-size: 12px;
+    color: #d4af37;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+/* BOTONES */
+.botones {
+    width: 390px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botones a,
+.botones button {
+    width: 175px;
+    padding: 12px;
+    background: black;
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+}
+
+.botones a:hover,
+.botones button:hover {
+    background: #bfa43a;
+    color: black;
+}
+
+/* RESPONSIVE */
+@media (max-width: 420px) {
+    .botones {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .botones a,
+    .botones button {
+        width: 100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <!-- TICKET -->
+    <div id="ticket-area" class="ticket">
+
+        <img src="logop.png" class="logo">
+
+        <div class="titulo">Ni Küelita Notal</div>
+        <div class="subtitulo">Todo echo para ti</div>
+
+        <div class="linea"></div>
+
+        <div style="color:#d4af37;">
+            <div style="font-size:22px; font-weight:bold;">✅ Pago exitoso</div>
+            <div style="font-size:15px; margin-top:6px;">Tu pedido está en camino 📦</div>
+        </div>
+
+        <div class="linea"></div>
+
+        <div style="color:#d4af37; font-size:14px; text-align:left;">
+            <strong>Estado:</strong> En preparación<br>
+            <strong>Entrega estimada:</strong> 3–5 días hábiles
+        </div>
+
+        <div class="linea"></div>
+
+        <div class="item"><strong>Fecha:</strong> <span id="fecha"></span></div>
+        <div class="item"><strong>Folio:</strong> <span id="folio"></span></div>
+
+        <div class="linea"></div>
+
+        <div style="text-align:left; color:#d4af37; font-size:13px;">
+            <strong>Enviar a:</strong> <span id="envio-nombre"></span><br>
+            <strong>Dirección:</strong> <span id="envio-direccion"></span>
+        </div>
+
+        <div class="linea"></div>
+
+        <div id="lista-productos"></div>
+
+        <div class="linea"></div>
+
+        <div class="total" id="total"></div>
+
+        <div class="linea"></div>
+
+        <div class="footer">
+            Gracias por apoyar el trabajo artesanal 💗<br>
+            ¡Vuelve pronto!
+        </div>
+
+    </div>
+
+    <!-- BOTONES ABAJO -->
+    <div class="botones">
+        <a href="index.html">Volver a la tienda</a>
+        <button id="descargar">Descargar Ticket PDF</button>
+    </div>
+
+</div>
+
+<script>
+    // 1. ELIMINAR EL CARRITO DE LA TIENDA DE INMEDIATO
+localStorage.removeItem("cart"); 
+
+// 1. Recuperar los productos y datos guardados antes del pago
+const datosEnvio = JSON.parse(localStorage.getItem("datosEnvioTicket")) || { nombre: "Cliente", calle: "S/D", ciudad: "" };
+const carrito = JSON.parse(localStorage.getItem("ticketCarrito")) || [];
+// 2. AHORA SÍ, vaciamos el carrito de la tienda original
+// Esto NO afecta a las variables 'datosEnvio' ni 'carrito' que acabamos de crear arriba
+localStorage.removeItem("cart");
+
+// 2. Llenar la cabecera del ticket
+document.getElementById("fecha").innerText = new Date().toLocaleString();
+document.getElementById("folio").innerText = "NK-" + Math.floor(Math.random() * 999999);
+document.getElementById("envio-nombre").innerText = datosEnvio.nombre;
+document.getElementById("envio-direccion").innerText = `${datosEnvio.calle}, ${datosEnvio.ciudad}`;
+
+// 3. Mostrar productos y calcular total
+const lista = document.getElementById("lista-productos");
+let totalAcumulado = 0;
+
+if (carrito.length === 0) {
+    lista.innerHTML = "<div class='item'>No se encontraron productos en el registro.</div>";
+} else {
+    lista.innerHTML = ""; // Limpiar el mensaje de "No se encontraron productos"
+    
+    carrito.forEach(p => {
+        let fila = document.createElement("div");
+        fila.className = "item";
+        // Mostramos Nombre y Precio
+        fila.innerHTML = `<span>${p.nombre}</span><span>$${parseFloat(p.precio).toFixed(2)}</span>`;
+        lista.appendChild(fila);
+        
+        // Sumamos al total
+        totalAcumulado += parseFloat(p.precio);
+    });
+}
+
+// 4. Mostrar el Total Final en el ticket
+document.getElementById("total").innerText = "TOTAL: $" + totalAcumulado.toFixed(2) + " MXN";
+
+// 5. Función para descargar el PDF
+document.getElementById("descargar").addEventListener("click", () => {
+    html2canvas(document.getElementById("ticket-area"), { scale: 3 }).then(canvas => {
+        const pdf = new jsPDF({
+            orientation: "portrait",
+            unit: "px",
+            format: [canvas.width + 40, canvas.height + 40]
+        });
+        pdf.addImage(canvas.toDataURL("image/png"), "PNG", 20, 20);
+        pdf.save("ticket_NiKuelita.pdf");
+        
+        // Limpiamos después de que el cliente ya tiene su PDF
+        localStorage.removeItem("ticketCarrito");
+        localStorage.removeItem("datosEnvioTicket");
+        // --- LIMPIEZA TOTAL ---
+        localStorage.removeItem("cart");          // Vacía la tienda
+        localStorage.removeItem("ticketCarrito");  // Borra la copia del ticket
+        localStorage.removeItem("datosEnvioTicket"); // Borra datos de envío
+        
+        alert("Gracias por tu compra. El carrito se ha vaciado.");
+    });
+});
+</script>
+
+</body>
+</html>

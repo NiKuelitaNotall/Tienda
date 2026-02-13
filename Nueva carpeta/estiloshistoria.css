@@ -1,0 +1,1218 @@
+
+.player-app {
+  max-width: 420px;
+  width: 100%;
+  margin: auto;
+  padding: 6px;
+  background: hsl(0, 100%, 99%);
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 247, 255, 0.952);
+  margin-left: 0%;
+}
+
+.player-app audio {
+  width: 100%;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .player-app {
+    padding: 9px;
+    border-radius: 10px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  undefined: undefined;
+  border-width: 0;
+  border-style: solid;
+}
+
+html,
+:host {
+  line-height: 1.5;
+  undefined: undefined;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    undefined: undefined;
+    line-height: inherit;
+}
+
+hr {
+    height: 0;
+    undefined: undefined;
+    color: inherit;
+    border-top-width: 1px;
+}
+
+abbr:where([title]) {
+text-decoration: underline dotted;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+b,
+strong {
+    font-weight: bolder;
+}
+
+code,
+kbd,
+samp,
+pre {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    undefined: undefined;
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    font-size: 1em;
+}
+
+small {
+    font-size: 80%;
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sub {
+    bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
+}
+
+table {
+    text-indent: 0;
+    undefined: undefined;
+    border-color: inherit;
+    border-collapse: collapse;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    undefined: undefined;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+button,
+select {
+    text-transform: none;
+}
+
+button,
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
+    -webkit-appearance: button;
+    undefined: undefined;
+    background-color: transparent;
+    background-image: none;
+}
+
+:-moz-focusring {
+    outline: auto;
+}
+
+:-moz-ui-invalid {
+    box-shadow: none;
+}
+
+progress {
+    vertical-align: baseline;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+    height: auto;
+}
+
+[type='search'] {
+  -webkit-appearance: textfield;
+  undefined: undefined;
+  outline-offset: -2px;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  undefined: undefined;
+  font: inherit;
+}
+
+summary {
+  display: list-item;
+}
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+dialog {
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input::placeholder,
+textarea::placeholder {
+  opacity: 1;
+  undefined: undefined;
+  color: #9ca3af;
+}
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+:disabled {
+  cursor: default;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  undefined: undefined;
+  vertical-align: middle;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+[hidden] {
+  display: none;
+}
+
+.body *::selection {
+  background-color: rgb(36 200 255 / 0.2);
+  color: rgb(255 255 255 / 1);
+}
+
+.body *::selection:hover {
+  color: rgb(255 255 255 / 1);
+}
+
+.body *::selection::selection {
+  color: rgb(255 255 255 / 1);
+}
+
+.body::selection {
+  background-color: rgb(36 200 255 / 0.2);
+}
+
+.body::selection::selection {
+  color: rgb(255 255 255 / 1);
+}
+
+.header {
+  border-bottom-width: 1px;
+  border-color: rgb(20 20 20 / 1);
+  background-color: rgb(0 0 0 / 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.header-container {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-icon {
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(34 34 34 / 1);
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.icon-map-pin {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.brand-title {
+  font-size: 26px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #ff2fd0, #24c8ff, rgb(36 200 255 / 0));
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link-juxtlahuaca {
+  color: rgb(43 255 136 / 1);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 9999px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.nav-link-juxtlahuaca:hover {
+  color: rgb(255 255 255 / 1);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #2bff88;
+}
+
+.nav-link-tlaxiaco {
+  color: rgb(255 47 208 / 1);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 9999px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.nav-link-tlaxiaco:hover {
+  color: rgb(255 255 255 / 1);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #ff2fd0;
+}
+
+.hero-section {
+  position: relative;
+}
+
+.hero-container {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.hero-content {
+  flex: 1 1 0%;
+}
+
+.hero-title {
+  font-size: 52px;
+}
+
+.hero-subtitle {
+  margin-top: 1rem;
+  color: rgb(207 231 255 / 1);
+  max-width: 42rem;
+}
+
+.hero-actions {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero-button-juxtlahuaca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-width: 1px;
+  border-color: rgb(36 200 255 / 1);
+  color: rgb(36 200 255 / 1);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.hero-button-juxtlahuaca:hover {
+  color: rgb(0 0 0 / 1);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 20px #24c8ff;
+  background-color: rgb(36 200 255 / 1);
+}
+
+.icon-navigation {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.hero-button-tlaxiaco {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-width: 1px;
+  border-color: rgb(255 47 208 / 1);
+  color: rgb(255 47 208 / 1);
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.hero-button-tlaxiaco:hover {
+  color: rgb(0 0 0 / 1);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 20px #ff2fd0;
+  background-color: rgb(255 47 208 / 1);
+}
+
+.icon-sparkles {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.hero-media {
+  width: 420px;
+}
+
+.hero-media-frame {
+  border-width: 1px;
+  background-color: rgb(0 0 0 / 0.4);
+  padding: 0.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 0 4px #111;
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: #1f1f1f;
+}
+
+.hero-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.section-juxtlahuaca {
+  border-top-width: 1px;
+  border-color: rgb(20 20 20 / 1);
+  padding-top: 3rem;
+}
+
+.juxtlahuaca-container {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.juxtlahuaca-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+.juxtlahuaca-content {
+  flex: 1 1 0%;
+}
+
+.juxtlahuaca-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.juxtlahuaca-heading-icon {
+  display: inline-flex;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(34 34 34 / 1);
+  background-color: rgb(0 0 0 / 0.5);
+}
+
+.icon-map {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.juxtlahuaca-title {
+  color: rgb(43 255 136 / 1);
+  font-size: 34px;
+}
+
+.juxtlahuaca-intro {
+  color: rgb(207 231 255 / 1);
+  margin-bottom: 2rem;
+}
+
+.juxtlahuaca-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.juxtlahuaca-card-ubicacion {
+  border-width: 1px;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: rgb(0 0 0 / 0.4);
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.juxtlahuaca-card-ubicacion:hover {
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 18px #2bff88;
+}
+
+.card-header-ubicacion {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.icon-pin {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.card-title-ubicacion {
+  color: rgb(255 47 208 / 1);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.card-text-ubicacion {
+  color: rgb(233 241 255 / 1);
+}
+
+.juxtlahuaca-card-poblacion {
+  border-width: 1px;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: rgb(0 0 0 / 0.4);
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.juxtlahuaca-card-poblacion:hover {
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 18px #2bff88;
+}
+
+.card-header-poblacion {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.icon-users {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.card-title-poblacion {
+  color: rgb(255 47 208 / 1);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.card-text-poblacion {
+  color: rgb(233 241 255 / 1);
+}
+
+.juxtlahuaca-card-cultura {
+  border-width: 1px;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: rgb(0 0 0 / 0.4);
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.juxtlahuaca-card-cultura:hover {
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 18px #2bff88;
+}
+
+.card-header-cultura {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.icon-theater {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.card-title-cultura {
+  color: rgb(255 47 208 / 1);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.card-text-cultura {
+  color: rgb(233 241 255 / 1);
+}
+
+.juxtlahuaca-card-economia {
+  border-width: 1px;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: rgb(0 0 0 / 0.4);
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.juxtlahuaca-card-economia:hover {
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 18px #2bff88;
+}
+
+.card-header-economia {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.icon-factory {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.card-title-economia {
+  color: rgb(255 47 208 / 1);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.card-text-economia {
+  color: rgb(233 241 255 / 1);
+}
+
+.juxtlahuaca-card-atractivos {
+  margin-top: 2rem;
+  border-width: 1px;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: rgb(0 0 0 / 0.4);
+}
+
+.card-header-atractivos {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.icon-camera {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.card-title-atractivos {
+  color: rgb(255 47 208 / 1);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.card-text-atractivos {
+  color: rgb(233 241 255 / 1);
+  margin-bottom: 1rem;
+}
+
+.juxtlahuaca-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.gallery-item {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border-width: 1px;
+  border-color: rgb(29 29 29 / 1);
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.gallery-item:hover {
+  border-color: rgb(255 47 208 / 1);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.juxtlahuaca-aside {
+  width: 420px;
+}
+
+.juxtlahuaca-aside-frame {
+  border-width: 1px;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: rgb(0 0 0 / 0.4);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 0 4px #111;
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: #1f1f1f;
+}
+
+.juxtlahuaca-aside-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.juxtlahuaca-aside-note {
+  margin-top: 1rem;
+  border-width: 1px;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background-color: rgb(0 0 0 / 0.4);
+}
+
+.section-tlaxiaco {
+  border-top-width: 1px;
+  border-color: rgb(20 20 20 / 1);
+  padding-top: 3rem;
+}
+
+.tlaxiaco-container {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.tlaxiaco-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+}
+
+.tlaxiaco-content {
+  flex: 1 1 0%;
+}
+
+.tlaxiaco-heading-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.tlaxiaco-heading-icon {
+  display: inline-flex;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(34 34 34 / 1);
+  background-color: rgb(0 0 0 / 0.5);
+}
+
+.icon-compass {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.tlaxiaco-title {
+  color: rgb(255 47 208 / 1);
+  font-size: 34px;
+}
+
+.tlaxiaco-intro {
+  color: rgb(207 231 255 / 1);
+  margin-bottom: 2rem;
+}
+
+.tlaxiaco-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.tlaxiaco-card-ubicacion {
+  border-width: 1px;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: rgb(0 0 0 / 0.4);
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tlaxiaco-card-ubicacion:hover {
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 18px #ff2fd0;
+}
+
+.tlaxiaco-card-poblacion {
+  border-width: 1px;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: rgb(0 0 0 / 0.4);
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tlaxiaco-card-poblacion:hover {
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 18px #ff2fd0;
+}
+
+.tlaxiaco-card-cultura {
+  border-width: 1px;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: rgb(0 0 0 / 0.4);
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tlaxiaco-card-cultura:hover {
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 18px #ff2fd0;
+}
+
+.icon-music {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.tlaxiaco-card-economia {
+  border-width: 1px;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: rgb(0 0 0 / 0.4);
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.tlaxiaco-card-economia:hover {
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 18px #ff2fd0;
+}
+
+.icon-shopping-bag {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.tlaxiaco-card-atractivos {
+  margin-top: 2rem;
+  border-width: 1px;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background-color: rgb(0 0 0 / 0.4);
+}
+
+.tlaxiaco-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.tlaxiaco-aside {
+  width: 420px;
+}
+
+.tlaxiaco-aside-frame {
+  border-width: 1px;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: rgb(0 0 0 / 0.4);
+  box-shadow: 0 0 #0000, 0 0 #0000, 0 0 0 4px #111;
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: #1f1f1f;
+}
+
+.tlaxiaco-aside-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+
+.tlaxiaco-aside-note {
+  margin-top: 1rem;
+  border-width: 1px;
+  border-radius: 1rem;
+  padding: 1.25rem;
+  background-color: rgb(0 0 0 / 0.4);
+}
+
+.footer {
+  border-top-width: 1px;
+  border-color: rgb(20 20 20 / 1);
+  margin-top: 3rem;
+}
+
+.footer-container {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-icon {
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-width: 1px;
+  border-color: rgb(34 34 34 / 1);
+}
+
+.footer-icon-image {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.footer-title {
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  color: rgb(157 255 0 / 1);
+}
+
+.footer-text {
+  color: rgb(207 231 255 / 1);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-link-juxtlahuaca {
+  color: rgb(43 255 136 / 1);
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 9999px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.footer-link-juxtlahuaca:hover {
+  color: rgb(255 255 255 / 1);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #2bff88;
+}
+
+.footer-link-tlaxiaco {
+  color: rgb(255 47 208 / 1);
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 9999px;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.footer-link-tlaxiaco:hover {
+  color: rgb(255 255 255 / 1);
+  outline-style: solid;
+  outline-width: 2px;
+  outline-color: #ff2fd0;
+}
+
+#iquda {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#icuuz6 {
+  font-size: 24pt;
+}
+
+#ixa2gc-2 {
+  width: 462px;
+  height: 290px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+}
+
+@media (max-width: 992px) {
+  .hero-media {
+    display: none;
+  }
+
+  .juxtlahuaca-layout {
+    flex-direction: column;
+  }
+
+  .juxtlahuaca-info-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .juxtlahuaca-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .juxtlahuaca-aside {
+    width: 100%;
+  }
+
+  .tlaxiaco-layout {
+    flex-direction: column;
+  }
+
+  .tlaxiaco-info-grid {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .tlaxiaco-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tlaxiaco-aside {
+    width: 100%;
+  }
+
+  .footer-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 38px;
+  }
+
+  .juxtlahuaca-gallery {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+
+  .tlaxiaco-gallery {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+
+
+
+
+
+   * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+
+    body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    }
+
+    /* Barra superior */
+    .top-bar {
+    background-color: #7b17b8;
+    color: #ffe6ff;
+    font-size: 15px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    }
+    .carousel-text {
+      display: inline-block;
+      animation: moveLeft 20s linear infinite;
+    }
+    .carousel-text p {
+      margin: 0 50px 0 0;
+      display: inline-block;
+      font-weight: 500;
+    }
+    @keyframes moveLeft {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    /* Navbar */
+    .navbar {
+      background-color: #111;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f7a1f3;
+      height: 99px;
+    }
+
+    .logo-logo{
+      text-align:right;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: #ffe6ff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+    color: #05acfa;
+    }
+
+
+    

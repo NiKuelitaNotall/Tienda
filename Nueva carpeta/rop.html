@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="rop.css">
+  <title>Dama</title>
+</head>
+
+<body>
+<!-- NAV -->
+<nav class="navbar">
+  <a href="index.html">
+    <img class="logo" src="logop.png" alt="logo">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="rop.html">Dama</a></li>
+    <li><a href="huipiles.html">Huipiles</a></li>
+    <li><a href="guayaberas.html">Guayaberas</a></li>
+    <li><a href="manu.html">Manualidades</a></li>
+    <li><a href="ves.html">Vestidos XV</a></li>
+    <li><a href="ale.html">Alebrijes</a></li>
+
+    <li class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
+    </li>
+  </ul>
+</nav>
+<div class="top-bar">
+    <div class="carousel-text">
+      <p>✨ Tradición con visión futurista.</p>
+      <p>🌸 Arte que nunca pasa de moda.</p>
+      <p>🎁 Lo clásico, con un giro innovador.</p>
+      <p>💜 Explora el futuro de la artesanía</p>
+    </div>
+  </div>
+<!-- CARRITO -->
+<div class="cart-panel" id="cart-panel">
+  <span class="cerrar-cart" onclick="toggleCart()">✖</span>
+  <h3>Tu carrito 🛍️</h3>
+  <div class="cart-items"></div>
+  <div class="cart-total">Total: $0 MXN</div>
+  <a href="formulario.html" style="background-color: #af19f5; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; text-align: center;">
+    Proceder al Envío
+</a>
+</div>
+
+<!-- PRODUCTOS -->
+<section class="productos">
+  <h2 class="section-title">El pasado en el presente con estilo</h2>
+
+  <div class="grid-productos">
+
+    <!-- PRODUCTO -->
+    <div class="producto-card">
+      <img src="ropa2/blusa06">
+      <h3>Blusa Blanca</h3>
+      <p class="precio">$2350 MXN</p>
+      <p class="descripcion">Blusa blanca con bordados multicolores.</p>
+      <button class="btn" data-id="blusa blanca"
+        onclick="addToCart('Blusa Blanca', 2350,'blusa blanca')">
+        Agregar al carrito
+      </button>
+    </div>
+
+    <div class="producto-card">
+      <img src="ropa2/blusa15">
+      <h3>Blusa Tradicional</h3>
+      <p class="precio">$1480 MXN</p>
+      <p class="descripcion">Bordado tradicional.</p>
+      <button class="btn" data-id="blusa tradicional"
+        onclick="addToCart('Blusa Tradicional', 1480,'blusa tradicional')">
+        Agregar al carrito
+      </button>
+    </div>
+
+    <div class="producto-card">
+      <img src="ropa2/blusa05">
+      <h3>Blusa Luz del Sol</h3>
+      <p class="precio">$1460 MXN</p>
+      <p class="descripcion">Tono amarillo con bordados.</p>
+      <button class="btn" data-id="Blusa Luz del Sol"
+        onclick="addToCart('Blusa Luz del Sol', 1460, 'Blusa Luz del Sol')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/blusa negra">
+      <h3>Blusa Noche Floral</h3>
+      <p class="precio">$2370 MXN</p>
+      <p class="descripcion">Blusa color negro con floriado de colores en la parte frontal</p>
+
+      <button class="btn"  data-id="Blusa Noche Floral"
+      onclick="addToCart('Blusa Noche Floral', 2370,'Blusa Noche Floral')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/3f032cf6-c633-4f41-9c82-0217641db304.jpg">
+      <h3>Blusa tradicional multicolor</h3>
+      <p class="precio">$1380 MXN</p>
+      <p class="descripcion">Blusa de manga larga en color amarillo vibrante, decorada con bordado floral en el frente y mangas.</p>
+
+      <button class="btn"  data-id="Blusa tradicional multicolor"
+      onclick="addToCart('Blusa tradicional multicolor', 1380,'Blusa tradicional multicolor')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/513761b0-7095-4691-98ff-c702a59e8cbb.jpg">
+      <h3>Blusa traducional con bordado verde</h3>
+      <p class="precio">$2310 MXN</p>
+      <p class="descripcion">blusa verde de corte clasico con bordado grometrico y floral en tonos verdes.</p>
+
+      <button class="btn" data-id="Blusa traducional con bordado verde"
+      onclick="addToCart('Blusa traducional con bordado verde', 2310,'Blusa traducional con bordado verde')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/5e840688-96f6-4dc8-84a6-d6963efa24f9.jpg">
+      <h3>Blusa Tradicional bordada azul</h3>
+      <p class="precio">$2220 MXN</p>
+      <p class="descripcion">Blusa blanca de corte clasico con delicado borde floral en tonos azules. Tela delgada y fresca</p>
+
+      <button class="btn" data-id="Blusa Tradicional bordada azul"
+      onclick="addToCart('Blusa Tradicional bordada azul', 2220,'Blusa Tradicional bordada azul')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/flo2">
+      <h3>Blusa Tradicional Bordada Multicolor Vertical</h3>
+      <p class="precio">$1450 MXN</p>
+      <p class="descripcion">Blusa blanca estilo tradicional con bordado floral multicolor en el frente y detalles artesanales en el escote.</p>
+
+      <button class="btn" data-id="Blusa Tradicional Bordada Multicolor Vertical"
+      onclick="addToCart('Blusa Tradicional Bordada Multicolor Vertical', 1450,'Blusa Tradicional Bordada Multicolor Vertical')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/flo3">
+      <h3>Blusa Tradicional Bordada Multicolor con Encaje</h3>
+      <p class="precio">$3190 MXN</p>
+      <p class="descripcion">Blusa blanca con bordado floral multicolor en el frente y mangas cortas con detalle de encaje.</p>
+
+      <button class="btn" data-id="Blusa Tradicional Bordada Multicolor con Encaje"
+      onclick="addToCart('Blusa Tradicional Bordada Multicolor con Encaje', 3190,'Blusa Tradicional Bordada Multicolor con Encaje')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/7fa54f3d-198a-4cb4-acf7-229497b836df.jpg">
+      <h3>Blusa Tipo Poncho Bordada Tradicional</h3>
+      <p class="precio">$3500 MXN</p>
+      <p class="descripcion">Blusa estilo poncho en color blanco con bordado artesanal multicolor. Brinda comodidad y frescura.</p>
+
+      <button class="btn" data-id="Blusa Tipo Poncho Bordada Tradicional"
+      onclick="addToCart('Blusa Tipo Poncho Bordada Tradicional', 3500,'Blusa Tipo Poncho Bordada Tradicional')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/97900969-03c8-44a5-9598-8043957a97b2.jpg">
+      <h3>Blusa Tradicional Floral con Olanes</h3>
+      <p class="precio">$2380 MXN</p>
+      <p class="descripcion">Blusa blanca con escote V, decorada con cordado floral multicolor y mangas cortas con olanes.</p>
+
+      <button class="btn"  data-id="Blusa Tradicional Floral con Olanes"
+      onclick="addToCart('Blusa Tradicional Floral con Olanes', 2380,'Blusa Tradicional Floral con Olanes')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/a106765e-9dbd-4921-8a82-73b39bf744bd.jpg">
+      <h3>Falda Tradicional Bordada Multicolor</h3>
+      <p class="precio">$1595 MXN</p>
+      <p class="descripcion">Falda blanca de estilo artesanal con bordado multicolor en la cintura y el ruedo.</p>
+
+      <button class="btn" data-id="Falda Tradicional Bordada Multicolor"
+      onclick="addToCart('Falda Tradicional Bordada Multicolor', 1595,'Falda Tradicional Bordada Multicolor')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/LLÉVATE UNA HERMOSA BLUSA DE MANTA FINA, BORDADO….jpg">
+      <h3>Blusa Tradicional "Floral Encantada"</h3>
+      <p class="precio">$2450 MXN</p>
+      <p class="descripcion">Blusa de algodon con bordado a mano de flores coloridas en el pecho y la cintura.</p>
+
+      <button class="btn" data-id="Blusa Tradicional Floral Encantada"
+      onclick="addToCart('Blusa Tradicional Floral Encantada', 2450,'Blusa Tradicional Floral Encantada')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/Blusa Bordada Mexicana Camisa Bordada Oaxaca Huipil Tacuate - Etsy.jpg">
+      <h3>Blusa Raíces de Oaxaca</h3>
+      <p class="precio">$1470 MXN</p>
+      <p class="descripcion">Blusa con bordado artesanal en tonos rojos, ideal para lucir el arte textil mexicano.</p>
+
+      <button class="btn" data-id="Blusa Raíces de Oaxaca"
+      onclick="addToCart('Blusa Raíces de Oaxaca', 1470,'Blusa Raíces de Oaxaca')">
+        Agregar al carrito
+      </button>
+    </div>
+
+     <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/Blusa María.jpg">
+      <h3>Blusa colores del pueblo</h3>
+      <p class="precio">$1280 MXN</p>
+      <p class="descripcion">Blusa de manga corta, adornada con cordado a mano de flores vibrantes, representan la riqueza cultural</p>
+
+      <button class="btn" data-id="Blusa colores del pueblo"
+      onclick="addToCart('Blusa colores del pueblo', 1280,'Blusa colores del pueblo')">
+        Agregar al carrito
+      </button>
+    </div>
+     <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/Jumpsuit, these jumpsuits fit a size S-M.jpg">
+      <h3>Vestido Flor de cielo</h3>
+      <p class="precio">$1320 MXN</p>
+      <p class="descripcion">Vestido bordado a mano con flores multicolores en el pecho y en la parte inferior, evocando la naturaleza de Oaxaca.</p>
+
+      <button class="btn"  data-id="Blusa Flor de cielo"
+      onclick="addToCart('Blusa Flor de cielo', 1320,'Blusa Flor de cielo')">
+        Agregar al carrito
+      </button>
+    </div> <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/ChatGPT Image 23 oct 2025, 14_17_37.png">
+      <h3>Blusa Mexico vivo</h3>
+      <p class="precio">$2390 MXN</p>
+      <p class="descripcion">Blusa con cordados a mano con flores intensas en el frente, con cuello redondo.</p>
+
+      <button class="btn" data-id="Blusa Mexico vivo"
+      onclick="addToCart('Blusa Mexico vivo', 2390,'Blusa Mexico vivo')">
+        Agregar al carrito
+      </button>
+    </div> <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/d15863d5-6b6d-4054-8e8c-88c1d95a0a9e.jpg">
+      <h3>vestido danza de colores</h3>
+      <p class="precio">$1430 MXN</p>
+      <p class="descripcion">Vestido con bordado tradicional con colores vivos inspirada en la danza. Es de uso casual</p>
+
+      <button class="btn" data-id="Blusa danza de colores"
+      onclick="addToCart('Blusa danza de colores', 1430,'Blusa danza de colores')">
+        Agregar al carrito
+      </button>
+    </div> <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/descarga (1).jpg">
+      <h3>Blusa Tradicional Floral Oaxaca</h3>
+      <p class="precio">$1450 MXN</p>
+      <p class="descripcion">Blusa artesanal bodrdada a mano sobre fondo negro, adornada con flores multicolor.</p>
+
+      <button class="btn" data-id="Blusa Tradicional Floral Oaxaca"
+      onclick="addToCart('Blusa Tradicional Floral Oaxaca', 1450, 'Blusa Tradicional Floral Oaxaca')">
+        Agregar al carrito
+      </button>
+    </div> <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/descarga (2).jpg">
+      <h3>Blusa Tradicional Blanca con Bordado Rojo</h3>
+      <p class="precio">$1250 MXN</p>
+      <p class="descripcion">Blusa de algodón en color blanco con delicado bordado floral rojo echo a mano, con cuello V con una corta abertura.</p>
+
+      <button class="btn" data-id="Blusa Tradicional Blanca con Bordado Rojo"
+      onclick="addToCart('Blusa Tradicional Blanca con Bordado Rojo', 1250, 'Blusa Tradicional Blanca con Bordado Rojo')">
+        Agregar al carrito
+      </button>
+    </div> <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="ropa2/descarga (3).jpg">
+      <h3>Blusa Tradicional Tipo Poncho Multicolor</h3>
+      <p class="precio">$1320 MXN</p>
+      <p class="descripcion">Blusa tipo poncho con bordados florales multicolor y detalles de fleco.</p>
+
+      <button class="btn" data-id="Blusa Tradicional Tipo Poncho Multicolor"
+      onclick="addToCart('Blusa Tradicional Tipo Poncho Multicolor', 1320, 'Blusa Tradicional Tipo Poncho Multicolor')">
+        Agregar al carrito
+      </button>
+    </div>
+  
+    <!--  
+      ❗ Puedes repetir este formato limpio para todos tus productos.
+      Ya no usas <form> porque no lo necesitas.
+    -->
+
+  </div>
+</section>
+
+<!-- SCRIPT -->
+ <script>
+/* ====== STORAGE ====== */
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let agotados = JSON.parse(localStorage.getItem("agotados")) || [];
+
+/* ====== CARRITO ====== */
+function renderCart() {
+    const items = document.querySelector(".cart-items");
+    const totalEl = document.querySelector(".cart-total");
+    const countEl = document.getElementById("cart-count");
+
+    if(!items) return; // Seguridad por si el panel no existe
+
+    items.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        items.innerHTML += `
+            <div class="cart-item">
+                <span>${item.nombre}</span>
+                <span>$${item.precio}</span>
+                <button class="eliminar" onclick="removeItem(${index})">Eliminar</button>
+            </div>
+        `;
+        total += item.precio;
+    });
+
+    totalEl.textContent = `Total: $${total} MXN`;
+    countEl.textContent = cart.length;
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+/* ====== AGREGAR / ELIMINAR ====== */
+function addToCart(nombre, precio, id) {
+    if (agotados.includes(id)) return;
+    cart.push({ nombre, precio, id });
+    agotados.push(id);
+    localStorage.setItem("agotados", JSON.stringify(agotados));
+    renderCart();
+    marcarAgotados();
+}
+
+function removeItem(index) {
+    const item = cart.splice(index, 1)[0];
+    agotados = agotados.filter(pid => pid !== item.id);
+    localStorage.setItem("agotados", JSON.stringify(agotados));
+    renderCart();
+    marcarAgotados();
+}
+
+function marcarAgotados() {
+    document.querySelectorAll("button[data-id]").forEach(btn => {
+        if (agotados.includes(btn.dataset.id)) {
+            btn.textContent = "AGOTADO";
+            btn.disabled = true;
+        } else {
+            btn.textContent = "Agregar al carrito";
+            btn.disabled = false;
+        }
+    });
+}
+
+function toggleCart() {
+    document.getElementById("cart-panel").classList.toggle("open");
+}
+
+/* ====== INICIALIZAR ====== */
+document.addEventListener("DOMContentLoaded", () => {
+    renderCart();
+    marcarAgotados();
+});
+</script>
+</body>
+</html>

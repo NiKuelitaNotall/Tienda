@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="ale.css">
+  <title>Alebrijes</title>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <a href="index.html">
+    <img class="logo" src="logop.png" alt="logo">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="rop.html">Dama</a></li>
+     <li><a href="huipiles.html">Huipiles</a></li>
+      <li><a href="guayaberas.html">Guayaberas</a></li>
+    <li><a href="manu.html">Manualidades</a></li>
+    <li><a href="ves.html">Vestidos XV</a></li>
+    <li><a href="ale.html">Alebrijes</a></li>
+
+    <li class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
+    </li>
+  </ul>
+</nav>
+
+<div class="top-bar">
+    <div class="carousel-text">
+      <p>✨ El arte que cobra vida.</p>
+      <p>🌸 Creaturas de sueños, hechas arte.</p>
+      <p>🎁 Colores que dan vida a la fantasía.</p>
+      <p>💜 Lo tradicional, con un toque de magia</p>
+    </div>
+  </div>
+<!-- CARRITO -->
+<div class="cart-panel" id="cart-panel">
+  <span class="cerrar-cart" onclick="toggleCart()">✖</span>
+  <h3>Tu carrito 🛍️</h3>
+  <div class="cart-items"></div>
+  <div class="cart-total">Total: $0 MXN</div>
+ <a href="formulario.html" style="background-color: #af19f5; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; text-align: center;">
+    Proceder al Envío
+</a>
+</div>
+
+
+<!-- PRODUCTOS -->
+<section class="productos">
+  <h2 class="section-title">Imaginación tallada en tradición.</h2>
+
+  <div class="grid-productos">
+
+    <!-- EJEMPLO DE PRODUCTO CORREGIDO -->
+   <!-- Producto 1 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/1a3927b1d28959f46cc7d944aec11784.jpg" alt="Blusa tradicional">
+        <h3>Xoloitzcuintle </h3>
+        <p class="precio">$1800 MXN</p>
+        <p class="descripcion">Alebrije de xoloitzcuintle decorado con patrones vibrantes que simbolizan la protección espiritual y el vínculo con el inframundo. Representa la lealtad, la guía del alma y la memoria ancestral de la tierra.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa Tradicional">
+          <input type="hidden" name="precio" value="450">
+          <button class="btn" data-id="Xoloitzcuintle"
+          onclick="addToCart('Xoloitzcuintle', 1800,'Xoloitzcuintle')">Agregar al carrito</button>
+
+        </form>
+      </div>
+
+      <!-- Producto 2 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/2007.webp" alt="Vestido para niña">
+        <h3>Tigre</h3>
+        <p class="precio">$1200 MXN</p>
+        <p class="descripcion">Figura de tigre estilizado con escamas geométricas y colores intensos que evocan el poder, la resistencia y el flujo del agua y del tiempo. Símbolo de fuerza interior y liderazgo.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Vestido Infantil">
+          <input type="hidden" name="precio" value="380">
+        <button class="btn"data-id="Tigre"
+        onclick="addToCart('Tigre', 1200,'Tigre')">Agregar al carrito</button>
+
+        </form>
+      </div>
+
+      <!-- Producto 3 -->
+     <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/4b78d50b4d56f123e7d0ef8b2989e67c.jpg" alt="Blusa tradicional">
+        <h3>Lobo</h3>
+        <p class="precio">$3100 MXN</p>
+        <p class="descripcion">Alebrije de lobo con mirada expresiva y patrones detallados que representan la inteligencia, el trabajo en comunidad y la conexión espiritual con la naturaleza.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa Tradicional">
+          <input type="hidden" name="precio" value="500">
+        <button class="btn"data-id="Lobo"
+         onclick="addToCart('Lobo ', 3100,'Lobo')">Agregar al carrito</button>
+        </form>
+      </div>
+
+      <!-- Producto 4 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/images (1).jfif" alt="Alebrije">
+        <h3>Iguana </h3>
+        <p class="precio">$980 MXN</p>
+        <p class="descripcion">Iguana ancestral decorada con colores solares y texturas rítmicas. Simboliza la sabiduría de la tierra, la regeneración y la energía vital que habita en la naturaleza.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Alebrije">
+          <input type="hidden" name="precio" value="700">
+         <button class="btn" data-id="Iguana"
+         onclick="addToCart('Iguana', 980,'Iguana')">Agregar al carrito</button>
+        </form>
+      </div>
+
+      <!-- Producto 5 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/A1.png" alt="Blusa tradicional">
+        <h3>Ratón</h3>
+        <p class="precio">$1420 MXN</p>
+        <p class="descripcion">Pequeño alebrije de ratón con patrones minuciosos y curvos. Representa la astucia, la adaptabilidad y la inteligencia silenciosa que permite sobrevivir y prosperar.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn"data-id="Ratón"
+           onclick="addToCart('Ratón', 1420,'Ratón')">Agregar al carrito</button>
+        </form>
+      </div>
+<!-- Producto 6 -->
+     <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/A10.jpg" alt="Blusa tradicional">
+        <h3>Colibrí</h3>
+        <p class="precio">$1080 MXN</p>
+        <p class="descripcion">Colibrí alado con colores brillantes y alas extendidas. Símbolo de alegría, amor, ligereza espiritual y mensajero entre mundos.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn" data-id="Colibrí"
+          onclick="addToCart('Colibrí', 1080,'Colibrí')">Agregar al carrito</button>
+        </form>
+      </div>
+      <!-- Producto 7 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/A2.jpg" alt="Blusa tradicional">
+        <h3>Ardilla</h3>
+        <p class="precio">$1600 MXN</p>
+        <p class="descripcion">IAlebrije de ardilla con cola curva y patrones dinámicos. Representa la previsión, la energía activa y el equilibrio entre juego y trabajo.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn"data-id="Ardilla"
+         onclick="addToCart('Ardilla', 1600,'Ardilla')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 8 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/A3.webp" alt="Blusa tradicional">
+        <h3>Ajolote</h3>
+        <p class="precio">$1900 MXN</p>
+        <p class="descripcion">Ajolote estilizado con formas suaves y colores acuáticos. Símbolo de regeneración, adaptación y la conexión sagrada con el agua.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn"data-id="Ajolote"
+           onclick="addToCart('Ajolote', 1900,'Ajolote')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 9 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/A5.jpg" alt="Blusa tradicional">
+        <h3>Perezoso</h3>
+        <p class="precio">$1350 MXN</p>
+        <p class="descripcion">Alebrije de perezoso con expresión serena y patrones orgánicos. Representa la calma, la paciencia y la sabiduría del ritmo natural de la vida, acrilico.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn" data-id="Perezoso"
+         onclick="addToCart('Perezoso', 1350,'Perezoso')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 10 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/A6.jpg" alt="Blusa tradicional">
+        <h3>Elefante</h3>
+        <p class="precio">$1050 MXN</p>
+        <p class="descripcion">Figura fantástica inspirada en el elefante, decorada con mandalas y formas circulares. Simboliza la memoria, la fortaleza y la protección familiar.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn"data-id="Elefante"
+          onclick="addToCart('Elefante', 1050,'Elefante')">Agregar al carrito</button>
+        </form>
+      </div>
+      <!-- Producto 11 -->
+     <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/A7.jpg" alt="Blusa tradicional">
+        <h3>Iguana Solar</h3>
+        <p class="precio">$4800 MXN</p>
+        <p class="descripcion">Alebrije de iguana con cuerpo alargado y colores cálidos que evocan al sol. Representa la sabiduría antigua, la resistencia y la energía vital de la tierra.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn"data-id="Iguana Solar"
+          onclick="addToCart('Iguana Solar', 4080,'Iguana Solar')">Agregar al carrito</button>
+        </form>
+      </div>
+<!-- Producto 12 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/A8.jpg" alt="Blusa tradicional">
+        <h3>Ratón del Monte</h3>
+        <p class="precio">$1420 MXN</p>
+        <p class="descripcion">Figura de ratón estilizado con patrones finos y colores contrastantes. Simboliza la astucia, la observación y la supervivencia inteligente.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn"data-id="Ratón del Monte"
+         onclick="addToCart('Ratón del Monte', 1420,'Ratón del Monte')">Agregar al carrito</button>
+
+        </form>
+      </div>
+<!-- Producto 13 -->
+     <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/A9.jpg" alt="Blusa tradicional">
+        <h3>Oso</h3>
+        <p class="precio">$1000 MXN</p>
+        <p class="descripcion">Guardian de los bosques y del campo</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn"data-id="Oso"
+           onclick="addToCart('Oso', 1000,'Oso')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 14 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/alebrije-buho-1-1024x1024.jpg" alt="Blusa tradicional">
+        <h3>Búho</h3>
+        <p class="precio">$5050 MXN</p>
+        <p class="descripcion">Representa el cuidado y la oscuridad.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn"data-id="Búho"
+         onclick="addToCart('Búho', 5050,'Búho')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 15 -->
+     <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/alebrije-de-ardilla-3.jpg" alt="Blusa tradicional">
+        <h3>Suricata</h3>
+        <p class="precio">$990 MXN</p>
+        <p class="descripcion">Animal que representa la diversidad cultural</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn" data-id="Suricata"
+          onclick="addToCart('Suricata', 990,'Suricata')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 16 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/alebrije-mexico.jpg" alt="Blusa tradicional">
+        <h3>Armadillo</h3>
+        <p class="precio">$1500 MXN</p>
+        <p class="descripcion"></p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">Basado en la cultura prehispanica.
+        <button class="btn" data-id="Armadillo"
+        onclick="addToCart('Armadillo', 1500,'Armadillo')">Agregar al carrito</button>
+    </div>
+    <!-- Producto 17 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/alebrije-ratón-1-1024x1024.jpg" alt="Blusa tradicional">
+        <h3>Ardilla de campo</h3>
+        <p class="precio">$1050 MXN</p>
+        <p class="descripcion">Inspirada en la agricultura de campo.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn" data-id="Ardilla de campo"
+        onclick="addToCart('Ardilla de campo', 1050,'Ardilla de campo')">Agregar al carrito</button>
+
+
+    </div>
+    
+    <!-- Producto 18 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/alebrijes-1024x682.png" alt="Blusa tradicional">
+        <h3>Dragón</h3>
+        <p class="precio">$1600 MXN</p>
+        <p class="descripcion">Echo de huesos se deslumbra por los colores fuertes y llamativos.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn"data-id="Dragón"
+         onclick="addToCart('Dragón', 1600,'Dragón')">Agregar al carrito</button>
+
+
+    </div>
+    
+    
+    <!-- Producto 19 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/alebrijes-la-magia-y-el-color-de-mexico-0.jpeg" alt="Blusa tradicional">
+        <h3>Armadillo</h3>
+        <p class="precio">$1020 MXN</p>
+        <p class="descripcion">Figura artesanal inspirada en el armadillo, decorada con patrones geométricos y colores tradicionales. Representa protección y fortaleza, elaborada y pintada a mano con gran detalle.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn" data-id="Armadillo"
+        onclick="addToCart('Armadillo', 1020,'Armadillo')">Agregar al carrito</button>
+
+
+    </div>
+    
+    <!-- Producto 20 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/alebrijes-mexicanos.webp" alt="Blusa tradicional">
+        <h3>Oso Hormiguero</h3>
+        <p class="precio">$980 MXN</p>
+        <p class="descripcion">Alebrije de oso hormiguero con cuerpo alargado y cola expresiva, decorado con motivos punteados y líneas vibrantes. Simboliza paciencia y conexión con la tierra.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn" data-id="Oso Hormiguero"
+         onclick="addToCart('Oso Hormiguero', 980,'Oso Hormiguero')">Agregar al carrito</button>
+
+
+    </div>
+    
+    <!-- Producto 21 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/Blue-Wings-Paper-Mache-Alebrije-7.webp" alt="Blusa tradicional">
+        <h3>Dragón Fantástico</h3>
+        <p class="precio">$1400 MXN</p>
+        <p class="descripcion">Figura fantástica inspirada en criaturas mitológicas, con colores intensos y formas dinámicas. Representa fuerza espiritual, protección y creatividad artesanal.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn" data-id="Dragón Fantástico"
+        onclick="addToCart('Dragón Fantástico', 1400,'Dragón Fantástico')">Agregar al carrito</button>
+    </div>
+     <!-- Producto 22 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/buo-artesanal-alebrije-oaxaca-mexico_miih-dy.jpg" alt="Blusa tradicional">
+        <h3>Búho Mixteco</h3>
+        <p class="precio">$2100 MXN</p>
+        <p class="descripcion">Alebrije en forma de búho con alas abiertas y patrones detallados. Símbolo de sabiduría y vigilancia, pintado a mano con colores tradicionales del arte oaxaqueño.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn"data-id="Búho Mixteco"
+         onclick="addToCart('Búho Mixteco', 2100,'Búho Mixteco')">Agregar al carrito</button>
+    </div>
+     <!-- Producto 23 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/Caracol_Purpura_CDMX-522_2048x.webp" alt="Blusa tradicional">
+        <h3>Lagarto/Serpiente</h3>
+        <p class="precio">$1800 MXN</p>
+        <p class="descripcion">Figura estilizada de lagarto con elementos fantásticos, decorada con líneas orgánicas y colores vivos. Representa renovación, energía y vínculo con la naturaleza.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn" data-id="Lagarto/Serpiente"
+        onclick="addToCart('Lagarto/Serpiente', 1800,'Lagarto/Serpiente')">Agregar al carrito</button>
+    </div>
+     <!-- Producto 24 -->
+      <div class="producto-card" 
+     data-color="rojo" 
+     data-animal="leon" 
+     data-material="madera">
+        <img src="alebrijes/D_NQ_NP_966934-MLM81687780968_012025-O-1-pza-alebrije-pavo-guajolote.webp" alt="Blusa tradicional">
+        <h3>Pavo Real</h3>
+        <p class="precio">$1200 MXN</p>
+        <p class="descripcion">Alebrije inspirado en el pavo real, con cola extendida y patrones circulares multicolores. Simboliza belleza, abundancia y orgullo cultural.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn"data-id="Pavo Real"
+         onclick="addToCart('Pavo Real', 1200,'Pavo Real')">Agregar al carrito</button>
+    </div>
+    
+    
+
+    <!--  
+      ❗ Puedes repetir este formato limpio para todos tus productos.
+      Ya no usas <form> porque no lo necesitas.
+    -->
+
+  </div>
+</section>
+<!-- SCRIPT -->
+ <script>
+/* ====== STORAGE ====== */
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let agotados = JSON.parse(localStorage.getItem("agotados")) || [];
+
+/* ====== CARRITO ====== */
+function renderCart() {
+    const items = document.querySelector(".cart-items");
+    const totalEl = document.querySelector(".cart-total");
+    const countEl = document.getElementById("cart-count");
+
+    if(!items) return; // Seguridad por si el panel no existe
+
+    items.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        items.innerHTML += `
+            <div class="cart-item">
+                <span>${item.nombre}</span>
+                <span>$${item.precio}</span>
+                <button class="eliminar" onclick="removeItem(${index})">Eliminar</button>
+            </div>
+        `;
+        total += item.precio;
+    });
+
+    totalEl.textContent = `Total: $${total} MXN`;
+    countEl.textContent = cart.length;
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+/* ====== AGREGAR / ELIMINAR ====== */
+function addToCart(nombre, precio, id) {
+    if (agotados.includes(id)) return;
+    cart.push({ nombre, precio, id });
+    agotados.push(id);
+    localStorage.setItem("agotados", JSON.stringify(agotados));
+    renderCart();
+    marcarAgotados();
+}
+
+function removeItem(index) {
+    const item = cart.splice(index, 1)[0];
+    agotados = agotados.filter(pid => pid !== item.id);
+    localStorage.setItem("agotados", JSON.stringify(agotados));
+    renderCart();
+    marcarAgotados();
+}
+
+function marcarAgotados() {
+    document.querySelectorAll("button[data-id]").forEach(btn => {
+        if (agotados.includes(btn.dataset.id)) {
+            btn.textContent = "AGOTADO";
+            btn.disabled = true;
+        } else {
+            btn.textContent = "Agregar al carrito";
+            btn.disabled = false;
+        }
+    });
+}
+
+function toggleCart() {
+    document.getElementById("cart-panel").classList.toggle("open");
+}
+
+/* ====== INICIALIZAR ====== */
+document.addEventListener("DOMContentLoaded", () => {
+    renderCart();
+    marcarAgotados();
+});
+</script>
+
+</body>
+</html>

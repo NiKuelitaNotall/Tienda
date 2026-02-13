@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="guayaberas.css">
+  <title>guayaberas</title>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <a href="index.html">
+    <img class="logo" src="logop.png" alt="logo">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="rop.html">Dama</a></li>
+     <li><a href="huipiles.html">Huipiles</a></li>
+      <li><a href="guayaberas.html">Guayaberas</a></li>
+    <li><a href="manu.html">Manualidades</a></li>
+    <li><a href="ves.html">Vestidos XV</a></li>
+    <li><a href="ale.html">Alebrijes</a></li>
+    
+    <li class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
+    </li>
+  </ul>
+</nav>
+
+<div class="top-bar">
+    <div class="carousel-text">
+      <p>✨ Estilo que rompe esquemas.</p>
+      <p>🌸 Viste lo inesperado.</p>
+      <p>🎁 Porque el futuro del estilo ya llegó.</p>
+      <p>💜 Deja que tu ropa hable por ti.</p>
+    </div>
+  </div>
+<!-- CARRITO -->
+<div class="cart-panel" id="cart-panel">
+  <span class="cerrar-cart" onclick="toggleCart()">✖</span>
+  <h3>Tu carrito 🛍️</h3>
+  <div class="cart-items"></div>
+  <div class="cart-total">Total: $0 MXN</div>
+  <a href="formulario.html" style="background-color: #af19f5; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; text-align: center;">
+    Proceder al Envío
+  </a>
+</div>
+<!-- PRODUCTOS -->
+<section class="productos">
+  <h2 class="section-title">Tradición y elegancia en cada puntada</h2>
+
+  <div class="grid-productos">
+
+    <!-- EJEMPLO DE PRODUCTO CORREGIDO -->
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/1.webp">
+      <h3>Guayabera Cenit Maya</h3>
+      <p class="precio">$650 MXN</p>
+      <p class="descripcion">Guayabera azul claro con bordado tradicional vertical, ideal para un estilo fresco y elegante.</p>
+
+      <button class="btn" data-id="Guayabera Cenit Maya"
+      onclick="addToCart('Guayabera Cenit Maya', 4650,'Guayabera Cenit Maya')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/2">
+      <h3>Guayabera Selva Viva</h3>
+      <p class="precio">$800 MXN</p>
+      <p class="descripcion">Diseño blanco con bordado multicolor inspirado en la naturaleza tropical; ligera y moderna.</p>
+
+      <button class="btn" data-id="Guayabera Selva Viva"
+      onclick="addToCart('Guayabera Selva Viva', 800,'Guayabera Selva Viva')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/3.webp">
+      <h3>Guayabera Noche Ancestral</h3>
+      <p class="precio">$720 MXN</p>
+      <p class="descripcion">Guayabera azul marino con bordado artesanal en contraste, perfecta para eventos nocturnos.</p>
+
+      <button class="btn" data-id="Guayabera Noche Ancestral"
+      onclick="addToCart('Guayabera Noche Ancestral', 720)">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/4.webp">
+      <h3>Guayabera Turquesa </h3>
+      <p class="precio">$930 MXN</p>
+      <p class="descripcion">Blanco clásico con bordado geométrico en tonos turquesa; tradición con carácter..</p>
+
+      <button class="btn" data-id="Guayabera Turquesa "
+      onclick="addToCart('Guayabera Turquesa ', 930,'Guayabera Turquesa')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/5">
+      <h3>Guayabera Flor de Maíz</h3>
+      <p class="precio">$740 MXN</p>
+      <p class="descripcion">Diseño en tono marfil con bordado floral artesanal que resalta la herencia cultural.</p>
+
+      <button class="btn"data-id="Guayabera Flor de Maíz"
+       onclick="addToCart('Guayabera Flor de Maíz', 740,'Guayabera Flor de Maíz')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/6">
+      <h3>Guayabera Brisa del Caribe</h3>
+      <p class="precio">$1650 MXN</p>
+      <p class="descripcion">Azul claro con bordado vertical en colores suaves; cómoda, fresca y versátil.</p>
+
+      <button class="btn" data-id="Guayabera Brisa del Caribe"
+      onclick="addToCart('Guayabera Brisa del Caribe', 1650,'Guayabera Brisa del Caribe')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/7">
+      <h3>Guayabera Camino del Sol</h3>
+      <p class="precio">$1890 MXN</p>
+      <p class="descripcion">Guayabera beige con bordado multicolor sutil, ideal para un look relajado y auténtico.</p>
+
+      <button class="btn" data-id="Guayabera Camino del Sol"
+      onclick="addToCart('Guayabera Camino del Sol', 1890,'Guayabera Camino del Sol')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/OIP (1).webp">
+      <h3>Guayabera Tierra Coral</h3>
+      <p class="precio">$1100 MXN</p>
+      <p class="descripcion">Diseño en tono coral con bordado tradicional vertical; fresca, llamativa y elegante.</p>
+
+      <button class="btn" data-id="Guayabera Tierra Coral"
+      onclick="addToCart('Guayabera Tierra Coral', 1100,'Guayabera Tierra Coral')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/OIP (10).webp">
+      <h3>Guayabera Fuego Nocturno</h3>
+      <p class="precio">$1950 MXN</p>
+      <p class="descripcion">Guayabera negra con bordado artesanal multicolor, pensada para destacar con estilo.</p>
+
+      <button class="btn" data-id="Guayabera Fuego Nocturno"
+      onclick="addToCart('Guayabera Fuego Nocturno', 1950,'Guayabera Fuego Nocturno')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/guayabera7">
+      <h3>Guayabera Selva Clara</h3>
+      <p class="precio">$1890 MXN</p>
+      <p class="descripcion">Blanco clásico con bordado vibrante inspirado en la naturaleza; ligera y contemporánea.</p>
+
+      <button class="btn" data-id="Guayabera Fuego Nocturno"
+      onclick="addToCart('Guayabera Selva Clara', 1890,'Guayabera Fuego Nocturno')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/OIP (3).webp">
+      <h3>Guayabera Alba Tradicional</h3>
+      <p class="precio">$2670 MXN</p>
+      <p class="descripcion">Guayabera blanca de manga larga con bordado discreto; elegancia atemporal.</p>
+
+      <button class="btn" data-id="Guayabera Alba Tradicional"
+      onclick="addToCart('Guayabera Alba Tradicional', 2670,'Guayabera Alba Tradicional')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/OIP (4).webp">
+      <h3>Guayabera Mar de Jade</h3>
+      <p class="precio">$1920 MXN</p>
+      <p class="descripcion">Diseño en tono turquesa con bordado fino; fresca, sofisticada y versátil.</p>
+
+      <button class="btn" data-id="Guayabera Mar de Jade"
+      onclick="addToCart('Guayabera Mar de Jade', 1920,'Guayabera Mar de Jade')">
+        Agregar al carrito
+      </button>
+    </div>
+
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/guayabera1">
+      <h3>Guayabera Selva Festiva</h3>
+      <p class="precio">$2590 MXN</p>
+      <p class="descripcion">Guayabera blanca de manga corta con bordado multicolor vibrante; fresca y alegre.</p>
+
+      <button class="btn" data-id="Guayabera Selva Festiva"
+      onclick="addToCart('Guayabera Selva Festiva', 2590,'Guayabera Selva Festiva')">
+        Agregar al carrito
+      </button>
+    </div>
+
+      <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/OIP (6).webp">
+      <h3>Guayabera Raíz Dorada</h3>
+      <p class="precio">$1200 MXN</p>
+      <p class="descripcion">Guayabera blanca bordada a mano con detalles tradicionales y elegantes.</p>
+
+      <button class="btn"data-id="Guayabera Raíz Dorada"
+       onclick="addToCart('Guayabera Raíz Dorada', 1200,'Guayabera Raíz Dorada')">
+        Agregar al carrito
+      </button>
+    </div>
+
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/OIP (7).webp">
+      <h3>Blusa Tradicional</h3>
+      <p class="precio">$1900 MXN</p>
+      <p class="descripcion">Blusa bordada a mano.</p>
+
+      <button class="btn" data-id="Blusa Tradicional"
+      onclick="addToCart('Blusa Tradicional', 1900,'Blusa Tradicional')">
+        Agregar al carrito
+      </button>
+    </div>
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/guayabera4">
+      <h3>Guayabera Flor de Tradición</h3>
+      <p class="precio">$1920 MXN</p>
+      <p class="descripcion">Guayabera clara con bordado floral vibrante que celebra la artesanía mexicana.</p>
+
+      <button class="btn" data-id="Guayabera Flor de Tradición"
+      onclick="addToCart('Guayabera Flor de Tradición', 1920,'Guayabera Flor de Tradición')">
+        Agregar al carrito
+      </button>
+    </div>
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/OIP (9).webp">
+      <h3>Guayabera de Noche</h3>
+      <p class="precio">$1500 MXN</p>
+      <p class="descripcion">Guayabera negra bordada a mano, sofisticada y con carácter.</p>
+
+      <button class="btn"data-id="Guayabera de Noche"
+       onclick="addToCart('Guayabera de Noche', 1500,'Guayabera de Noche')">
+        Agregar al carrito
+      </button>
+    </div>
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/guayabera3">
+      <h3>Guayabera Cielo Maya</h3>
+      <p class="precio">$2900 MXN</p>
+      <p class="descripcion">Guayabera azul con bordado tradicional, fresca y moderna.</p>
+
+      <button class="btn" data-id="Guayabera Cielo Maya"
+      onclick="addToCart('Guayabera Cielo Maya', 2900,'Guayabera Cielo Maya')">
+        Agregar al carrito
+      </button>
+    </div>
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/guayabera5">
+      <h3>Guayabera Nieve Bordada</h3>
+      <p class="precio">$1200 MXN</p>
+      <p class="descripcion">Guayabera blanca de manga larga con bordado sutil y elegante.</p>
+
+      <button class="btn" data-id="Guayabera Nieve Bordada"
+      onclick="addToCart('Guayabera Nieve Bordada', 1200,'Guayabera Nieve Bordada')">
+        Agregar al carrito
+      </button>
+    </div>
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/guayabera2">
+      <h3>Guayabera Fuego Tradicional</h3>
+      <p class="precio">$2650 MXN</p>
+      <p class="descripcion">Guayabera en tono oscuro con bordado rojo intenso, fuerte y auténtica.</p>
+
+      <button class="btn" data-id="Guayabera Fuego Tradicional"
+      onclick="addToCart('Guayabera Fuego Tradicional', 2650,'Guayabera Fuego Tradicional')">
+        Agregar al carrito
+      </button>
+    </div>
+    <div class="producto-card" 
+      data-color="rojo" data-estacion="verano" data-ocasion="casual">
+      <img src="guyaberas/guayabera6">
+      <h3>Guayabera Brisa Colonial</h3>
+      <p class="precio">$2500 MXN</p>
+      <p class="descripcion">Guayabera clara con bordado delicado en tonos suaves, ligera y refinada.</p>
+
+      <button class="btn"data-id="Guayabera Brisa Colonial"
+       onclick="addToCart('Guayabera Brisa Colonial', 2500,'Guayabera Brisa Colonial')">
+        Agregar al carrito
+      </button>
+    </div>
+    
+
+  </div>
+</section>
+
+<!-- SCRIPT -->
+ <script>
+/* ====== STORAGE ====== */
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let agotados = JSON.parse(localStorage.getItem("agotados")) || [];
+
+/* ====== CARRITO ====== */
+function renderCart() {
+    const items = document.querySelector(".cart-items");
+    const totalEl = document.querySelector(".cart-total");
+    const countEl = document.getElementById("cart-count");
+
+    if(!items) return; // Seguridad por si el panel no existe
+
+    items.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        items.innerHTML += `
+            <div class="cart-item">
+                <span>${item.nombre}</span>
+                <span>$${item.precio}</span>
+                <button class="eliminar" onclick="removeItem(${index})">Eliminar</button>
+            </div>
+        `;
+        total += item.precio;
+    });
+
+    totalEl.textContent = `Total: $${total} MXN`;
+    countEl.textContent = cart.length;
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+/* ====== AGREGAR / ELIMINAR ====== */
+function addToCart(nombre, precio, id) {
+    if (agotados.includes(id)) return;
+    cart.push({ nombre, precio, id });
+    agotados.push(id);
+    localStorage.setItem("agotados", JSON.stringify(agotados));
+    renderCart();
+    marcarAgotados();
+}
+
+function removeItem(index) {
+    const item = cart.splice(index, 1)[0];
+    agotados = agotados.filter(pid => pid !== item.id);
+    localStorage.setItem("agotados", JSON.stringify(agotados));
+    renderCart();
+    marcarAgotados();
+}
+
+function marcarAgotados() {
+    document.querySelectorAll("button[data-id]").forEach(btn => {
+        if (agotados.includes(btn.dataset.id)) {
+            btn.textContent = "AGOTADO";
+            btn.disabled = true;
+        } else {
+            btn.textContent = "Agregar al carrito";
+            btn.disabled = false;
+        }
+    });
+}
+
+function toggleCart() {
+    document.getElementById("cart-panel").classList.toggle("open");
+}
+
+/* ====== INICIALIZAR ====== */
+document.addEventListener("DOMContentLoaded", () => {
+    renderCart();
+    marcarAgotados();
+});
+</script>
+
+</body>
+</html>

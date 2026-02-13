@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="manu.css">
+  <title>manualidades</title>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="navbar">
+  <a href="index.html">
+    <img class="logo" src="logop.png" alt="logo">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="rop.html">Dama</a></li>
+     <li><a href="huipiles.html">Huipiles</a></li>
+      <li><a href="guayaberas.html">Guayaberas</a></li>
+    <li><a href="manu.html">Manualidades</a></li>
+    <li><a href="ves.html">Vestidos XV</a></li>
+    <li><a href="ale.html">Alebrijes</a></li>
+
+    <li class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
+    </li>
+  </ul>
+</nav>
+
+<div class="top-bar">
+    <div class="carousel-text">
+      <p>✨ Transforma ideas en arte</p>
+      <p>🌸 La magia está en tus manos.</p>
+      <p>🎁 La creatividad no tiene fronteras.</p>
+      <p>💜 Cada manualidad, una nueva aventura.</p>
+    </div>
+  </div>
+
+<!-- CARRITO -->
+<div class="cart-panel" id="cart-panel">
+  <span class="cerrar-cart" onclick="toggleCart()">✖</span>
+  <h3>Tu carrito 🛍️</h3>
+  <div class="cart-items"></div>
+  <div class="cart-total">Total: $0 MXN</div>
+ <a href="formulario.html" style="background-color: #af19f5; color: white; padding: 15px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; text-align: center;">
+    Proceder al Envío
+ </a>
+</div>
+<!-- Stripe -->
+<script src="https://js.stripe.com/v3/"></script>
+
+
+
+<!-- PRODUCTOS -->
+<section class="productos">
+  <h2 class="section-title">Pequeñas piezas, grandes tradiciones.</h2>
+
+  <div class="grid-productos">
+
+    <!-- EJEMPLO DE PRODUCTO CORREGIDO -->
+       <div class="producto-card" data-material="barro" data-tamano="grande" data-uso="regalo">
+      <img src="manualidades/m1.webp" alt="Centro de mesa">
+      <h3>Flor de Tradición</h3>
+      <p class="precio">$150 MXN</p>
+      <p class="descripcion">Centro de mesa artesanal con detalles florales y madera tallada, ideal para dar vida y color a cualquier espacio.</p>
+      <button class="btn" data-id="Flor de Tradición"
+      onclick="addToCart('Flor de Tradición', 150,'Flor de Tradición')">Agregar al carrito</button>
+    </div>
+
+      <!-- Producto 2 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/te" alt="Vestido para niña">
+        <h3>Sol de Palma</h3>
+        <p class="precio">$180 MXN</p>
+        <p class="descripcion">Pieza tejida a mano con fibras naturales, ligera y fresca, perfecta para ocasiones especiales o uso decorativo.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Vestido Infantil">
+          <input type="hidden" name="precio" value="380">
+          <button class="btn" data-id="Sol de Palma"
+          onclick="addToCart('Sol de Palma', 180,'Sol de Palma')">Agregar al carrito</button>
+
+        </form>
+      </div>
+
+      <!-- Producto 3 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m1.jpg" alt="Blusa tradicional">
+        <h3> Servilletas de Rosas</h3>
+        <p class="precio">$200 MXN</p>
+        <p class="descripcion">Servilleta bordada a mano con motivos florales tradicionales, un toque elegante y cultural para tu mesa.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa Tradicional">
+          <input type="hidden" name="precio" value="500">
+          <button class="btn" data-id="Servilletas de Rosas"
+          onclick="addToCart('Servilletas de Rosas', 200,'Servilletas de Rosas')">Agregar al carrito</button>
+
+        </form>
+      </div>
+
+      <!-- Producto 4 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m2.jpg" alt="Alebrije">
+        <h3>Camino mixteco</h3>
+        <p class="precio">$450 MXN</p>
+        <p class="descripcion">Bolsa artesanal con patrones geométricos y colores vibrantes, resistente y perfecta para el día a día</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Alebrije">
+          <input type="hidden" name="precio" value="700">
+           <button class="btn" data-id="Camino mixteco"
+           onclick="addToCart('Camino mixteco', 450,'Camino mixteco')">Agregar al carrito</button>
+
+        </form>
+      </div>
+
+      <!-- Producto 5 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m3.jpg" alt="Blusa tradicional">
+        <h3>Jardín Bordado</h3>
+        <p class="precio">$380 MXN</p>
+        <p class="descripcion">Bolsa hecha a mano con bordados florales llenos de color, ideal para destacar tu estilo con arte tradicional.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn" data-id="Jardín Bordado"
+         onclick="addToCart('Jardín Bordado', 380,'Jardín Bordado')">Agregar al carrito</button>
+        </form>
+      </div>
+<!-- Producto 6 -->
+     <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m4.jpg" alt="Blusa tradicional">
+        <h3>Brisa de Palma</h3>
+        <p class="precio">$500 MXN</p>
+        <p class="descripcion">Bolsa tejida en palma natural con diseño minimalista, fresca, ligera y funcional para cualquier ocasión.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn" data-id=""
+        onclick="addToCart('Brisa de Palma', 500)">Agregar al carrito</button>
+        </form>
+      </div>
+      <!-- Producto 7 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m5.jpg" alt="Blusa tradicional">
+        <h3>Aretes Bordado de Luna</h3>
+        <p class="precio">$80 MXN</p>
+        <p class="descripcion">Aretes tejidos a mano con diseño geométrico tradicional y borlas de hilo que aportan movimiento y elegancia artesanal.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn"data-id="Aretes Bordado de Luna"
+           onclick="addToCart('Aretes Bordado de Luna', 80,'Aretes Bordado de Luna')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 8 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m6.jpg" alt="Blusa tradicional">
+        <h3>Collar Corazón Florido</h3>
+        <p class="precio">$100 MXN</p>
+        <p class="descripcion">Collar artesanal con dije bordado en forma de corazón, inspirado en flores tradicionales y montado en cordón tejido.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="120">
+          <button class="btn" data-id="Collar Corazón Florido"
+          onclick="addToCart('Collar Corazón Florido', 100,'Collar Corazón Florido')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 9 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m7.jpg" alt="Blusa tradicional">
+        <h3>Bolso Camino de Colores</h3>
+        <p class="precio">$250 MXN</p>
+        <p class="descripcion">Bolso tejido a mano con patrones geométricos vibrantes, ideal para uso diario y para llevar lo esencial con estilo artesanal.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn"data-id="Bolso Camino de Colores"
+           onclick="addToCart('Bolso Camino de Colores', 250,'Bolso Camino de Colores')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 10 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m8.jpg" alt="Blusa tradicional">
+        <h3>Servilleta Jardín Ancestral</h3>
+        <p class="precio">$180 MXN</p>
+        <p class="descripcion">Servilleta bordada a mano con motivos florales tradicionales, perfecta para mesas que celebran la herencia artesanal.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn" data-id=""
+         onclick="addToCart('Servilleta Jardín Ancestral', 180)">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 11 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m9.jpg" alt="Blusa tradicional">
+        <h3>Servilletero Flor del Maíz</h3>
+        <p class="precio">$150 MXN</p>
+        <p class="descripcion">Servilletero artesanal con bordado floral central y delicado borde tejido que realza cualquier mesa.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+          <button class="btn" data-id="Servilletero Flor del Maíz"
+          onclick="addToCart('Servilletero Flor del Maíz', 150,'Servilletero Flor del Maíz')">Agregar al carrito</button>
+        </form>
+      </div>
+<!-- Producto 12 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m10.jpg" alt="Blusa tradicional">
+        <h3>Tenate frutero Raíz Viva</h3>
+        <p class="precio">$320 MXN</p>
+        <p class="descripcion">Tenate tejido a mano con diseño geométrico tradicional, ideal para frutas, pan o como pieza decorativa.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn" data-id="Tenate frutero Raíz Viva"
+        onclick="addToCart('Tenate frutero Raíz Viva', 320,'Tenate frutero Raíz Viva')">Agregar al carrito</button>
+        </form>
+      </div>
+<!-- Producto 13 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m11.jpg" alt="Blusa tradicional">
+        <h3>Servilleta Canasta de Tradición</h3>
+        <p class="precio">$180 MXN</p>
+        <p class="descripcion">Servilleta bordada a mano con motivos florales y diseño tradicional, ideal para mesas artesanales.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+        <button class="btn"data-id="Servilleta Canasta de Tradición"
+         onclick="addToCart('Servilleta Canasta de Tradición', 180,'Servilleta Canasta de Tradición')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 14 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m12.jpg" alt="Blusa tradicional">
+        <h3>Bolso Jardín Nocturno</h3>
+        <p class="precio">$380 MXN</p>
+        <p class="descripcion">Bolso textil bordado con flores vibrantes sobre fondo oscuro; resistente y perfecto para uso diario.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn" data-id="Bolso Jardín Nocturno"
+         onclick="addToCart('Bolso Jardín Nocturno', 380,'Bolso Jardín Nocturno')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 15 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m13.jpg" alt="Blusa tradicional">
+        <h3>Servilleta Flor de Encaje</h3>
+        <p class="precio">$150 MXN</p>
+        <p class="descripcion">Servilleta blanca con bordado floral colorido y delicado borde de encaje artesanal.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+           <button class="btn" data-id="Servilleta Flor de Encaje"
+           onclick="addToCart('Servilleta Flor de Encaje', 150,'Servilleta Flor de Encaje')">Agregar al carrito</button>
+
+        </form>
+      </div>
+      <!-- Producto 16 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m14.jpg" alt="Blusa tradicional">
+        <h3>Aretes Raíz Ancestral</h3>
+        <p class="precio">$120 MXN</p>
+        <p class="descripcion">Aretes tejidos a mano con patrón geométrico y borlas suaves que aportan movimiento y carácter.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn"data-id="Aretes Raíz Ancestral"
+          onclick="addToCart('Aretes Raíz Ancestral', 120,'Aretes Raíz Ancestral')">Agregar al carrito</button>
+
+    </div>
+    <!-- Producto 17 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m16.jpg" alt="Blusa tradicional">
+        <h3>Bolso Sol del Telar</h3>
+        <p class="precio">$210 MXN</p>
+        <p class="descripcion">Bolso tejido con diseños geométricos tradicionales y asas firmes, funcional y auténtico.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn" data-id="Bolso Sol del Telar"
+         onclick="addToCart('Bolso Sol del Telar', 210,'Bolso Sol del Telar')">Agregar al carrito</button>
+
+    </div>
+    <!-- Producto 18 -->
+      <div class="producto-card"
+     data-material="madera"
+     data-tamano="mediano"
+     data-uso="decoracion">
+        <img src="manualidades/m15.jpg" alt="Blusa tradicional">
+        <h3>Peineta Primavera Bordada</h3>
+        <p class="precio">$50 MXN</p>
+        <p class="descripcion">Peineta decorativa con bordado floral a mano, ideal para realzar peinados con un toque artesanal.</p>
+        <form action="agregar_carrito.php" method="POST">
+          <input type="hidden" name="nombre" value="Blusa María">
+          <input type="hidden" name="precio" value="420">
+         <button class="btn" data-id="Peineta Primavera Bordada"
+          onclick="addToCart('Peineta Primavera Bordada', 50,'Peineta Primavera Bordada')">Agregar al carrito</button>
+
+    </div>
+
+    <!--  
+      ❗ Puedes repetir este formato limpio para todos tus productos.
+      Ya no usas <form> porque no lo necesitas.
+    -->
+
+  </div>
+</section>
+<!-- SCRIPT -->
+ <script>
+/* ====== STORAGE ====== */
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let agotados = JSON.parse(localStorage.getItem("agotados")) || [];
+
+/* ====== CARRITO ====== */
+function renderCart() {
+    const items = document.querySelector(".cart-items");
+    const totalEl = document.querySelector(".cart-total");
+    const countEl = document.getElementById("cart-count");
+
+    if(!items) return; // Seguridad por si el panel no existe
+
+    items.innerHTML = "";
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        items.innerHTML += `
+            <div class="cart-item">
+                <span>${item.nombre}</span>
+                <span>$${item.precio}</span>
+                <button class="eliminar" onclick="removeItem(${index})">Eliminar</button>
+            </div>
+        `;
+        total += item.precio;
+    });
+
+    totalEl.textContent = `Total: $${total} MXN`;
+    countEl.textContent = cart.length;
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+/* ====== AGREGAR / ELIMINAR ====== */
+function addToCart(nombre, precio, id) {
+    if (agotados.includes(id)) return;
+    cart.push({ nombre, precio, id });
+    agotados.push(id);
+    localStorage.setItem("agotados", JSON.stringify(agotados));
+    renderCart();
+    marcarAgotados();
+}
+
+function removeItem(index) {
+    const item = cart.splice(index, 1)[0];
+    agotados = agotados.filter(pid => pid !== item.id);
+    localStorage.setItem("agotados", JSON.stringify(agotados));
+    renderCart();
+    marcarAgotados();
+}
+
+function marcarAgotados() {
+    document.querySelectorAll("button[data-id]").forEach(btn => {
+        if (agotados.includes(btn.dataset.id)) {
+            btn.textContent = "AGOTADO";
+            btn.disabled = true;
+        } else {
+            btn.textContent = "Agregar al carrito";
+            btn.disabled = false;
+        }
+    });
+}
+
+function toggleCart() {
+    document.getElementById("cart-panel").classList.toggle("open");
+}
+
+/* ====== INICIALIZAR ====== */
+document.addEventListener("DOMContentLoaded", () => {
+    renderCart();
+    marcarAgotados();
+});
+</script>
+</body>
+</html>
