@@ -1,28 +1,30 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "tienda"; // Nombre que aparece en tu SQL
+// Configuración de conexión
+$conn = new mysqli("localhost", "root", "", "tienda_envios");
 
-$conexion = mysqli_connect($host, $user, $pass);
-
-if (!$conexion) {
-    die("Error de conexión: " . mysqli_connect_error());
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
 }
 
-// Intentar entrar a la base de datos
-$db_selected = mysqli_select_db($conexion, $db);
+// Limpiar y recibir datos para evitar inyecciones SQL
+$nombre = $conn->real_escape_string($_POST['nombre']);
+$calle  = $conn->real_escape_string($_POST['calle']);
+$ciudad = $conn->real_escape_string($_POST['ciudad']);
+$cp     = $conn->real_escape_string($_POST['cp']);
+$ref    = $conn->real_escape_string($_POST['referencias']);
 
-if (!$db_selected) {
-    echo "<div style='background:#ffdddd; padding:20px; border:1px solid red; font-family:sans-serif;'>";
-    echo "<h2>⚠️ Base de Datos no detectada</h2>";
-    echo "Para que la tienda funcione en esta PC:<br><br>";
-    echo "1. Ve a <b>http://localhost/phpmyadmin</b><br>";
-    echo "2. Crea una base de datos nueva llamada: <b>$db</b><br>";
-    echo "3. Importa el archivo <b>datos_tienda.sql</b> que está en tu carpeta.";
-    echo "</div>";
-    exit;
+$sql = "INSERT INTO direcciones_envio (nombre_receptor, calle_numero, ciudad, codigo_postal, referencias) 
+        VALUES ('$nombre', '$calle', '$ciudad', '$cp', '$ref')";
+
+if ($conn->query($sql) === TRUE) {
+    // Obtenemos el ID de la dirección que se acaba de guardar
+    $id_direccion = $conn->insert_id; 
+
+    // REDIRECCIÓN A STRIPE
+    // Aquí pegas la URL de tu archivo de Stripe o tu Checkout Link
+    header("Location: checkout_stripe.php?id_ref=" . $id_direccion); 
+    exit();
+} else {
+    echo "Error: " . $conn->error;
 }
-
-mysqli_set_charset($conexion, "utf8mb4");
 ?>
